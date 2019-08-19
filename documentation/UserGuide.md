@@ -8,15 +8,7 @@ We create this package to encansulate several scales scenarios.
 ## API
 * [Domain and Range](#domain-and-range)
 * [Continuous](#continuous)
-	+ [Linear]
-	+ [Log]
-	+ [Pow]
-* Sequential
-* Diverging
-* Quantize
-* Quantile
-* Threshold
-* Ordinal (Band, Point)
+
 
 ## Domain and Range
 
@@ -54,7 +46,27 @@ color scale: 10. "red".
 color scale: 100. "blue".
 ```
 
+<a name="continous_inver" href="#continouos_invert">#</a><i>continuous invert: value</i>
 
+Given a value from the range, returns a corresponding value from the domain.
 
+```Smalltalk
+x := TSScale linear domain: #(10 130); range: #(0 960).
+x invert: 80. "20".
+x invert: 320. "50"
+```
+
+If the given value is outside the range, and clamping is not enabled, the mapping may be extrapoled such that the returned value outside the domain. This method is only supported if the range is numeric. If the range is not numeric, returns Float nan.
+
+The continuous scales typically have have 2 value in their domain and range, specifying move than two values produces a piecewise scale. 
+
+```Smalltalk
+color := TSScale linear
+	domain: #(-1 0 1);
+	range: #(red white green).
+color scale: -0.5. "red-white"
+color scale: 0.5. "white green"
+```
+Internally a poly scale performs a binary search, for the range interpolator corresponding to the given domain value. Thus, the domain must be in ascending or descending order. If the domain and range have different sizes K and J, only the first `K min: J` elements in each are observed.
 
 asdfasdfasd
