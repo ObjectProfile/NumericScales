@@ -185,7 +185,7 @@ TSScale >> range: aTwoArrayOfNumbers [
 
 { #category : #hooks }
 TSScale >> rescale [
-	self subclassResponsibilitya
+	self subclassResponsibility
 ]
 
 { #category : #transformation }
