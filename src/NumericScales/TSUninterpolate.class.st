@@ -6,7 +6,7 @@ TSUninterpolateNumber
 "
 Class {
 	#name : #TSUninterpolate,
-	#superclass : #TSObject,
+	#superclass : #Object,
 	#instVars : [
 		'a',
 		'b'

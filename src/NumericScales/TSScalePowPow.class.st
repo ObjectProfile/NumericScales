@@ -3,7 +3,7 @@ I am a utility clas for CAScalePow
 "
 Class {
 	#name : #TSScalePowPow,
-	#superclass : #TSObject,
+	#superclass : #Object,
 	#instVars : [
 		'exponent'
 	],
