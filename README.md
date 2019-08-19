@@ -20,9 +20,8 @@ Metacello new
 To add NumericScales to your baseline:
 
 ```Smalltalk
-spec
-	baseline: 'NumericScales'
-	with: [ spec repository: 'github://ObjectProfile/NumericScales/src' ]
+spec package: 'NumericScales'with: [ 
+	spec repository: 'github://ObjectProfile/NumericScales/src' ].
 ```
 
 ## Quick start
