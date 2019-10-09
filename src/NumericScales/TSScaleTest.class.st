@@ -179,7 +179,7 @@ TSScaleTest >> testPowScale [
 TSScaleTest >> testRandom [
 	"Random uses TSScale linear"
 	| random value |
-	random := SharedRandom globalGenerator.
+	random := Random new.
 	value := random rsNext: 10.
 	self assert: (value between: 0 and: 10).
 	value := random rsNext: -10 and: -5.
