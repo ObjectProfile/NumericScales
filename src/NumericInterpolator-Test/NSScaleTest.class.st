@@ -2,15 +2,15 @@
 A TSScaleTest is a test class for testing the behavior of TSScale
 "
 Class {
-	#name : #TSScaleTest,
+	#name : #NSScaleTest,
 	#superclass : #TestCase,
 	#category : #'NumericInterpolator-Test'
 }
 
 { #category : #'test - colors' }
-TSScaleTest >> testCategories [
+NSScaleTest >> testCategories [
 	| color |
-	color := TSScale category10.
+	color := NSScale category10.
 	self assert: color range size equals: 10.
 	
 	1 to: 10 do: [ :i | 
@@ -19,32 +19,32 @@ TSScaleTest >> testCategories [
 	1 to: 10 do: [ :i | 
 		self assert: (color scale: i) equals: (color scale: i + 10) ].
 	
-	color := TSScale category20.
+	color := NSScale category20.
 	
 	self assert: color range size equals: 20.
 	0 to: 19 do: [ :i | 
 		self assert: (color scale: i) class equals: Color ].
-	color := TSScale category20b.
+	color := NSScale category20b.
 	
 	self assert: color range size equals: 20.
-	color := TSScale category20c.
+	color := NSScale category20c.
 	self assert: color range size equals: 20.
 	
-	color := TSScale paired12.
+	color := NSScale paired12.
 	self assert: color range size equals: 12.
 ]
 
 { #category : #'test - scales' }
-TSScaleTest >> testLogScale [
+NSScaleTest >> testLogScale [
 	| log |
-	log := TSScale log.
+	log := NSScale log.
 	self 
 		assert: log base equals: 10;
 		assert: log range equals: #(0 1);
 		assert: (log scale: 10) equals: 1;
 		assert: (log scale: 100) equals: 2;
 		assert: (log scale: 50) equals: 1.6989700043360185.
-	log := TSScale log
+	log := NSScale log
 		base: Float e;
 		domain: (#(0 9) collect: #exp);
 		range: #(200 0).
@@ -57,16 +57,16 @@ TSScaleTest >> testLogScale [
 	log clamp: true.
 	self
 		assert: (log scale: 9000) closeTo: 0;
-		assert: log interpolate equals: TSInterpolator.
-	log interpolate: TSInterpolator
+		assert: log interpolate equals: NSInterpolator.
+	log interpolate: NSInterpolator
 	
 
 ]
 
 { #category : #'test - scales' }
-TSScaleTest >> testOrdinalScale [
+NSScaleTest >> testOrdinalScale [
 	| ordinal |
-	ordinal := TSScale ordinal
+	ordinal := NSScale ordinal
 		domain: #('a' 'b' 'c' 'd' 'e' 'f');
 		range: #(10 20 30 40 50 60).
 	self 
@@ -77,9 +77,9 @@ TSScaleTest >> testOrdinalScale [
 ]
 
 { #category : #'test - scales' }
-TSScaleTest >> testOrdinalScaleRangeBands [
+NSScaleTest >> testOrdinalScaleRangeBands [
 	| ordinal |
-	ordinal := TSScale ordinal
+	ordinal := NSScale ordinal
 		domain: #('a' 'b' 'c' 'd' 'e' 'f');
 		rangeBands: #(0 960).
 	self 
@@ -93,9 +93,9 @@ TSScaleTest >> testOrdinalScaleRangeBands [
 ]
 
 { #category : #'test - scales' }
-TSScaleTest >> testOrdinalScaleRangePoints [
+NSScaleTest >> testOrdinalScaleRangePoints [
 	| ordinal |
-	ordinal := TSScale ordinal
+	ordinal := NSScale ordinal
 		domain: #('apple' 'orange' 'banana' 'grape');
 		rangePoints: #(0 960).
 	self 
@@ -109,9 +109,9 @@ TSScaleTest >> testOrdinalScaleRangePoints [
 ]
 
 { #category : #'test - scales' }
-TSScaleTest >> testOrdinalScaleRangeRoundBands [
+NSScaleTest >> testOrdinalScaleRangeRoundBands [
 	| ordinal |
-	ordinal := TSScale ordinal
+	ordinal := NSScale ordinal
 		domain: #('a' 'b' 'c' 'd' 'e' 'f');
 		rangeRoundBands: #(0 960) padding: 0.1.
 	self 
@@ -121,7 +121,7 @@ TSScaleTest >> testOrdinalScaleRangeRoundBands [
 		assert: (ordinal scale: 'f') equals: 802;
 		assert: ordinal rangeExtent equals: #(0 960).
 		
-	ordinal := TSScale ordinal
+	ordinal := NSScale ordinal
 		domain: #('a' 'b' 'c' 'd' 'e' 'f');
 		rangeRoundBands: #(0 960).
 	self 
@@ -133,9 +133,9 @@ TSScaleTest >> testOrdinalScaleRangeRoundBands [
 ]
 
 { #category : #'test - scales' }
-TSScaleTest >> testOrdinalScaleRangeRoundPoints [
+NSScaleTest >> testOrdinalScaleRangeRoundPoints [
 	| ordinal |
-	ordinal := TSScale ordinal
+	ordinal := NSScale ordinal
 		domain: #(1 2 3 4);
 		rangeRoundPoints: #(0 100).
 	self 
@@ -147,9 +147,9 @@ TSScaleTest >> testOrdinalScaleRangeRoundPoints [
 ]
 
 { #category : #'test - scales' }
-TSScaleTest >> testPowScale [
+NSScaleTest >> testPowScale [
 	| pow |
-	pow := TSScale pow.
+	pow := NSScale pow.
 	
 	self
 		assert: pow exponent equals: 1;
@@ -168,15 +168,15 @@ TSScaleTest >> testPowScale [
 	self 
 		assert: (pow scale: 200) equals: 10;
 		assert: (pow scale: 99.9) closeTo: 9.960020000000004.
-	pow interpolate: TSRoundInterpolator.
+	pow interpolate: NSRoundInterpolator.
 	self 
-		assert: pow interpolate equals: TSRoundInterpolator;
+		assert: pow interpolate equals: NSRoundInterpolator;
 		assert: (pow scale: 99.9) equals: 10;
 		assert: pow range equals: #(-10 10)
 ]
 
 { #category : #'test - linear' }
-TSScaleTest >> testRandom [
+NSScaleTest >> testRandom [
 	"Random uses TSScale linear"
 	| random value |
 	random := Random new.
@@ -187,9 +187,9 @@ TSScaleTest >> testRandom [
 ]
 
 { #category : #'test - scales' }
-TSScaleTest >> testSameRange [
+NSScaleTest >> testSameRange [
 	| sc |
-	sc := TSScale linear
+	sc := NSScale linear
 		domain: #(0 100);
 		range: #(100 100).
 	self assert: (sc scale: 0) equals: 100.
@@ -197,7 +197,7 @@ TSScaleTest >> testSameRange [
 	self assert: (sc scale: 100) equals: 100.
 	self assert: (sc scale: 123123) equals: 100.
 
-	sc := TSScale linear
+	sc := NSScale linear
 		domain: #(0 100);
 		range: #(0 0).
 	self assert: (sc scale: 0) equals: 0.
@@ -207,9 +207,9 @@ TSScaleTest >> testSameRange [
 ]
 
 { #category : #'test - linear' }
-TSScaleTest >> testScaleLinear [
+NSScaleTest >> testScaleLinear [
 	| linear |
-	linear := TSScale linear.
+	linear := NSScale linear.
 	self 
 		assert: linear domain equals: #(0 1);
 		assert: linear range equals: #(0 1).
@@ -218,16 +218,16 @@ TSScaleTest >> testScaleLinear [
 		assert: (linear scale: 1) equals: 10;
 		assert: (linear scale: 0.5) equals: 5.5.
 		
-	self assert: linear interpolate equals: TSInterpolator.
-	self assert: linear uninterpolate equals: TSUninterpolateNumber.
+	self assert: linear interpolate equals: NSInterpolator.
+	self assert: linear uninterpolate equals: NSUninterpolateNumber.
 	
 	
 ]
 
 { #category : #'test - linear' }
-TSScaleTest >> testScaleLinearClamp [
+NSScaleTest >> testScaleLinearClamp [
 	| linear |
-	linear := TSScale linear
+	linear := NSScale linear
 		domain: #(0 10);
 		range: #(0 100).
 	self assert: (linear scale: 11) equals: 110.
@@ -238,9 +238,9 @@ TSScaleTest >> testScaleLinearClamp [
 ]
 
 { #category : #'test - linear' }
-TSScaleTest >> testScaleLinearColors [
+NSScaleTest >> testScaleLinearColors [
 	| linear |
-	linear := TSScale linear
+	linear := NSScale linear
 		domain: #(0 100);
 		range: #('white' 'black').
 	self assert: (linear scale: 50) equals: Color gray.
@@ -249,9 +249,9 @@ TSScaleTest >> testScaleLinearColors [
 ]
 
 { #category : #'test - linear' }
-TSScaleTest >> testScaleLinearInvert [
+NSScaleTest >> testScaleLinearInvert [
 	| linear |
-	linear := TSScale linear
+	linear := NSScale linear
 		domain: #(-5 5);
 		range: #(40 50).
 	self 
@@ -263,9 +263,9 @@ TSScaleTest >> testScaleLinearInvert [
 ]
 
 { #category : #'test - linear' }
-TSScaleTest >> testScaleLinearRound [
+NSScaleTest >> testScaleLinearRound [
 	| linear |
-	linear := TSScale linear
+	linear := NSScale linear
 		domain: #(-5 5);
 		rangeRound: #(40 50).
 	self 
@@ -277,9 +277,9 @@ TSScaleTest >> testScaleLinearRound [
 ]
 
 { #category : #'test - linear' }
-TSScaleTest >> testScalePolyLinear [
+NSScaleTest >> testScalePolyLinear [
 	| linear |
-	linear := TSScale linear
+	linear := NSScale linear
 		domain: #(0 0.5 1);
 		range: #(10 80 10).
 	self 
@@ -287,7 +287,7 @@ TSScaleTest >> testScalePolyLinear [
 		assert: (linear scale: 0.5) equals: 80;
 		assert: (linear scale: 1) equals: 10;
 		assert: (linear scale: 1.5) equals: -60.
-	linear := TSScale linear
+	linear := NSScale linear
 		domain: #(0 0.5 1);
 		range: #('white' 'black' 'white').
 	self 
@@ -300,26 +300,26 @@ TSScaleTest >> testScalePolyLinear [
 ]
 
 { #category : #'test - colors' }
-TSScaleTest >> testSetInterpolator [
+NSScaleTest >> testSetInterpolator [
 	| scale |
-	scale := TSScale linear
+	scale := NSScale linear
 		range: { 'white'. 'black' }.
 	self assert: (scale scale: 0.5) equals: Color gray.
-	scale interpolate: TSColorHSLAInterpolator.
+	scale interpolate: NSColorHSLAInterpolator.
 	self assert: (scale scale: 0.5) equals: Color gray.
-	scale interpolate: TSColorHSVAInterpolator.
+	scale interpolate: NSColorHSVAInterpolator.
 	self assert: (scale scale: 0.5) equals: Color gray.
 ]
 
 { #category : #'test - scales' }
-TSScaleTest >> testSqrt [
+NSScaleTest >> testSqrt [
 	| sqrt |
-	sqrt := TSScale sqrt.
+	sqrt := NSScale sqrt.
 	self 
 		assert: sqrt exponent equals: 0.5;
 		assert: ((sqrt scale: 9) closeTo: 3).
 	
-	sqrt := TSScale sqrt
+	sqrt := NSScale sqrt
 		domain: #(0 36756666);
 		range: #(0 220).
 	self assert: (sqrt scale: 4661900) closeTo: 78.34947695663722

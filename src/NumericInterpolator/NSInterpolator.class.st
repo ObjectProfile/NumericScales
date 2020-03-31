@@ -8,32 +8,32 @@ The basic interpolation is between 2 values
 0 and 1, usually the value between these values is called 't'
 "
 Class {
-	#name : #TSInterpolator,
+	#name : #NSInterpolator,
 	#superclass : #Object,
 	#category : #'NumericInterpolator-Interpolators'
 }
 
 { #category : #interpolation }
-TSInterpolator class >> colorInterpolator [
-	^ TSColorRGBAInterpolator
+NSInterpolator class >> colorInterpolator [
+	^ NSColorRGBAInterpolator
 ]
 
 { #category : #interpolation }
-TSInterpolator class >> interpolate: a and: b [
+NSInterpolator class >> interpolate: a and: b [
 	| clazz |
 	clazz := self interpolatorFor: b.
 	^ clazz new start: a; stop: b.
 ]
 
 { #category : #interpolation }
-TSInterpolator class >> interpolatorFor: b [
+NSInterpolator class >> interpolatorFor: b [
 	(b isString or: [ b isColor ]) ifTrue: [ ^ self colorInterpolator ].
-	b isNumber ifTrue: [ ^ TSNumberInterpolator ].
-	b isPoint ifTrue: [ ^ TSNumberInterpolator ].
+	b isNumber ifTrue: [ ^ NSNumberInterpolator ].
+	b isPoint ifTrue: [ ^ NSNumberInterpolator ].
 	self error: 'Invalid value for interpolator'
 ]
 
 { #category : #interpolation }
-TSInterpolator >> interpolate: anObject [
+NSInterpolator >> interpolate: anObject [
 	self subclassResponsibility
 ]

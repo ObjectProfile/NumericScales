@@ -17,7 +17,7 @@ s := TSScale linear.
 -=-=-=
 "
 Class {
-	#name : #TSScale,
+	#name : #NSScale,
 	#superclass : #Object,
 	#instVars : [
 		'domain',
@@ -29,54 +29,54 @@ Class {
 }
 
 { #category : #'instance creation' }
-TSScale class >> category10 [
+NSScale class >> category10 [
 	^ self fromColorCategory: #category10
 ]
 
 { #category : #'instance creation' }
-TSScale class >> category20 [
+NSScale class >> category20 [
 	^ self fromColorCategory: #category20
 ]
 
 { #category : #'instance creation' }
-TSScale class >> category20b [
+NSScale class >> category20b [
 	^ self fromColorCategory: #category20b
 ]
 
 { #category : #'instance creation' }
-TSScale class >> category20c [
+NSScale class >> category20c [
 	^ self fromColorCategory: #category20c
 ]
 
 { #category : #'instance creation' }
-TSScale class >> eva10 [
+NSScale class >> eva10 [
 	^ self fromColorCategory: #eva10
 ]
 
 { #category : #'instance creation' }
-TSScale class >> fromColorCategory: symbol [
+NSScale class >> fromColorCategory: symbol [
 	^ self ordinal 
-		range: (TSColorRGBAInterpolator perform: symbol);
+		range: (NSColorRGBAInterpolator perform: symbol);
 		yourself
 ]
 
 { #category : #'instance creation' }
-TSScale class >> google20 [
+NSScale class >> google20 [
 	^ self fromColorCategory: #google20
 ]
 
 { #category : #'instance creation' }
-TSScale class >> linear [
-	^ TSScaleLinear new. 
+NSScale class >> linear [
+	^ NSScaleLinear new. 
 ]
 
 { #category : #'instance creation' }
-TSScale class >> log [
-	^ TSScaleLog new
+NSScale class >> log [
+	^ NSScaleLog new
 ]
 
 { #category : #'instance creation' }
-TSScale class >> ordinal [
+NSScale class >> ordinal [
 "Define an ordinal scale. Here is an example:
 
 v := RSView new.
@@ -90,38 +90,38 @@ RSHorizontalLineLayout new gapSize: 0; on: boxes.
 v @ RSControlsView.
 v open
 "
-	^ TSScaleOrdinal new 
+	^ NSScaleOrdinal new 
 ]
 
 { #category : #'instance creation' }
-TSScale class >> paired12 [
+NSScale class >> paired12 [
 	^ self fromColorCategory: #paired12
 ]
 
 { #category : #'instance creation' }
-TSScale class >> pow [
-	^ TSScalePow new
+NSScale class >> pow [
+	^ NSScalePow new
 ]
 
 { #category : #'instance creation' }
-TSScale class >> sky8 [
+NSScale class >> sky8 [
 	^ self fromColorCategory: #sky8
 ]
 
 { #category : #'instance creation' }
-TSScale class >> sqrt [
+NSScale class >> sqrt [
 	^ self pow
 		exponent: 0.5; 
 		yourself
 ]
 
 { #category : #accessing }
-TSScale >> domain [
+NSScale >> domain [
 	^ domain
 ]
 
 { #category : #accessing }
-TSScale >> domain: aTwoArrayAsNumbers [
+NSScale >> domain: aTwoArrayAsNumbers [
 	"Define the domain of the input values. Values provided to scale: should be within the domain
 	For example
 	-=-=-=
@@ -136,38 +136,38 @@ TSScale >> domain: aTwoArrayAsNumbers [
 ]
 
 { #category : #accessing }
-TSScale >> from [
+NSScale >> from [
 	^ self range first
 ]
 
 { #category : #accessing }
-TSScale >> from: value [
+NSScale >> from: value [
 	self range: { value. self range last }.
 ]
 
 { #category : #accessing }
-TSScale >> interpolate [
+NSScale >> interpolate [
 	^ interpolate
 ]
 
 { #category : #accessing }
-TSScale >> interpolate: anObject [
+NSScale >> interpolate: anObject [
 	interpolate := anObject.
 ]
 
 { #category : #transformation }
-TSScale >> invert: anObject [
+NSScale >> invert: anObject [
 	"This is the inverse of scale"
 	self subclassResponsibility.
 ]
 
 { #category : #accessing }
-TSScale >> range [
+NSScale >> range [
 	^ range
 ]
 
 { #category : #accessing }
-TSScale >> range: aTwoArrayOfNumbers [
+NSScale >> range: aTwoArrayOfNumbers [
 	"Expect an array of two numbers.
 	A range defines the range of the scaled value.
 	
@@ -184,37 +184,37 @@ TSScale >> range: aTwoArrayOfNumbers [
 ]
 
 { #category : #hooks }
-TSScale >> rescale [
+NSScale >> rescale [
 	self subclassResponsibility
 ]
 
 { #category : #transformation }
-TSScale >> rsValue: obj [
+NSScale >> rsValue: obj [
 	^ self scale: obj
 ]
 
 { #category : #transformation }
-TSScale >> scale: anObject [
+NSScale >> scale: anObject [
 	"do you have your domain, and your range? ok so use this method in one of my subclasses"
 	self subclassResponsibility
 ]
 
 { #category : #accessing }
-TSScale >> to [
+NSScale >> to [
 	^ self range last
 ]
 
 { #category : #accessing }
-TSScale >> to: value [
+NSScale >> to: value [
 	self range: { self range first. value }.
 ]
 
 { #category : #accessing }
-TSScale >> uninterpolate [
+NSScale >> uninterpolate [
 	^ uninterpolate
 ]
 
 { #category : #accessing }
-TSScale >> uninterpolate: anObject [
+NSScale >> uninterpolate: anObject [
 	uninterpolate := anObject
 ]

@@ -2,7 +2,7 @@
 based on https://mrl.nyu.edu/~perlin/noise/
 "
 Class {
-	#name : #TSPerlinNoise3,
+	#name : #NSPerlinNoise3,
 	#superclass : #Object,
 	#instVars : [
 		'octaves',
@@ -12,7 +12,7 @@ Class {
 }
 
 { #category : #public }
-TSPerlinNoise3 >> grad2d: i x: x y: y [
+NSPerlinNoise3 >> grad2d: i x: x y: y [
 	| v |
 	v := (i &1) = 0 
 		ifTrue: [ x ] 
@@ -21,7 +21,7 @@ TSPerlinNoise3 >> grad2d: i x: x y: y [
 ]
 
 { #category : #initialization }
-TSPerlinNoise3 >> initialize [
+NSPerlinNoise3 >> initialize [
 	| r |
 	super initialize.
 	self octaves: 1.
@@ -32,12 +32,12 @@ TSPerlinNoise3 >> initialize [
 ]
 
 { #category : #public }
-TSPerlinNoise3 >> lerp: t a: a b: b [
+NSPerlinNoise3 >> lerp: t a: a b: b [
 	^ t * (b - a) + a
 ]
 
 { #category : #public }
-TSPerlinNoise3 >> noise2d: xin and: yin [
+NSPerlinNoise3 >> noise2d: xin and: yin [
 	| x1 y1 x y fx fy p0 p1 |
 	x1 := xin floor & 255.
 	y1 := yin floor & 255.
@@ -57,7 +57,7 @@ TSPerlinNoise3 >> noise2d: xin and: yin [
 ]
 
 { #category : #public }
-TSPerlinNoise3 >> noise: xin and: yin [
+NSPerlinNoise3 >> noise: xin and: yin [
 	| e k s |
 	e := 1.
 	k := 1.
@@ -70,6 +70,6 @@ TSPerlinNoise3 >> noise: xin and: yin [
 ]
 
 { #category : #accessing }
-TSPerlinNoise3 >> octaves: anInteger [
+NSPerlinNoise3 >> octaves: anInteger [
 	octaves := anInteger
 ]

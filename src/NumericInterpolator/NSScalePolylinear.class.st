@@ -2,8 +2,8 @@
 I can handle a several kind of values
 "
 Class {
-	#name : #TSScalePolylinear,
-	#superclass : #TSScale,
+	#name : #NSScalePolylinear,
+	#superclass : #NSScale,
 	#instVars : [
 		'k',
 		'u',
@@ -13,7 +13,7 @@ Class {
 }
 
 { #category : #private }
-TSScalePolylinear >> findJ: x [
+NSScalePolylinear >> findJ: x [
 	| lo hi mid |
 	lo := 2.
 	hi := k.
@@ -26,12 +26,12 @@ TSScalePolylinear >> findJ: x [
 ]
 
 { #category : #transformation }
-TSScalePolylinear >> invert: anObject [
+NSScalePolylinear >> invert: anObject [
 	self shouldNotImplement
 ]
 
 { #category : #hooks }
-TSScalePolylinear >> rescale [
+NSScalePolylinear >> rescale [
 	| obj |
 	u := OrderedCollection new.
 	i := OrderedCollection new.
@@ -51,7 +51,7 @@ TSScalePolylinear >> rescale [
 ]
 
 { #category : #transformation }
-TSScalePolylinear >> scale: x [
+NSScalePolylinear >> scale: x [
 	| j |
 	j := self findJ: x.
 	^ (i at: j) interpolate: ((u at: j) uninterpolate: x)

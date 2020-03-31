@@ -2,7 +2,7 @@
 Based on Ken Perlin
 "
 Class {
-	#name : #TSPerlinNoise2,
+	#name : #NSPerlinNoise2,
 	#superclass : #Object,
 	#instVars : [
 		'p'
@@ -11,12 +11,12 @@ Class {
 }
 
 { #category : #public }
-TSPerlinNoise2 >> fade: t [
+NSPerlinNoise2 >> fade: t [
 	^ t * t * t * (t * (t * 6 - 15) + 10 )
 ]
 
 { #category : #public }
-TSPerlinNoise2 >> grad: hash x: x y: y z: z [
+NSPerlinNoise2 >> grad: hash x: x y: y z: z [
 	| h u v |
 	h := hash & 15.
 	u := h < 8
@@ -37,7 +37,7 @@ TSPerlinNoise2 >> grad: hash x: x y: y z: z [
 ]
 
 { #category : #initialization }
-TSPerlinNoise2 >> initialize [
+NSPerlinNoise2 >> initialize [
 	| permutation |
 	super initialize.
 	p := Dictionary new.
@@ -47,22 +47,22 @@ TSPerlinNoise2 >> initialize [
 ]
 
 { #category : #public }
-TSPerlinNoise2 >> lerp: t a: a b: b [
+NSPerlinNoise2 >> lerp: t a: a b: b [
 	^ t * (b - a) + a
 ]
 
 { #category : #public }
-TSPerlinNoise2 >> noise: xin [
+NSPerlinNoise2 >> noise: xin [
 	^ self noise: xin y: 0 z: 0
 ]
 
 { #category : #public }
-TSPerlinNoise2 >> noise: xin and: yin [
+NSPerlinNoise2 >> noise: xin and: yin [
 	^ self noise: xin y: yin z: 0
 ]
 
 { #category : #public }
-TSPerlinNoise2 >> noise: xin y: yin z: zin [
+NSPerlinNoise2 >> noise: xin y: yin z: zin [
 	"(TSPerlinNoise2 new noise: 3.14 y: 42 z: 7) >>> 0.13691995878400012"
 	| x0 y0 z0 x y z u v w a aa ab b ba bb |
 	x0 := xin floor & 255.
@@ -99,7 +99,7 @@ TSPerlinNoise2 >> noise: xin y: yin z: zin [
 ]
 
 { #category : #public }
-TSPerlinNoise2 >> snoise: xin and: yin [
+NSPerlinNoise2 >> snoise: xin and: yin [
 	"range #(0 1)"
 	^((self noise: xin and: yin) + 1)/2
 ]

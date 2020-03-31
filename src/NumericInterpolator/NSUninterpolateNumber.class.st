@@ -2,12 +2,12 @@
 I uninterpolate a value of x acording to 2 limits, a and b
 "
 Class {
-	#name : #TSUninterpolateNumber,
-	#superclass : #TSUninterpolate,
+	#name : #NSUninterpolateNumber,
+	#superclass : #NSUninterpolate,
 	#category : #'NumericInterpolator-Interpolators'
 }
 
 { #category : #interpolating }
-TSUninterpolateNumber >> uninterpolate: x [
+NSUninterpolateNumber >> uninterpolate: x [
 	^ (x - a )/b
 ]

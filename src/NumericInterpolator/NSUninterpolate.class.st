@@ -5,7 +5,7 @@ TSUninterpolateClamp
 TSUninterpolateNumber
 "
 Class {
-	#name : #TSUninterpolate,
+	#name : #NSUninterpolate,
 	#superclass : #Object,
 	#instVars : [
 		'a',
@@ -15,25 +15,25 @@ Class {
 }
 
 { #category : #interpolating }
-TSUninterpolate class >> uninterpolate: aNum1 and: aNum2 [
+NSUninterpolate class >> uninterpolate: aNum1 and: aNum2 [
 	^ self new uninterpolate: aNum1 and: aNum2.
 	
 ]
 
 { #category : #accessing }
-TSUninterpolate >> stopValue: aNum1 stop: aNum2 [
+NSUninterpolate >> stopValue: aNum1 stop: aNum2 [
 	aNum1 isZero ifFalse: [ ^ aNum1 ].
 	aNum2 isZero ifTrue: [ ^ Float infinity ].
 	^ 1 / aNum2
 ]
 
 { #category : #interpolating }
-TSUninterpolate >> uninterpolate: x [
+NSUninterpolate >> uninterpolate: x [
 	self subclassResponsibility.
 ]
 
 { #category : #accessing }
-TSUninterpolate >> uninterpolate: aNum1 and: aNum2 [
+NSUninterpolate >> uninterpolate: aNum1 and: aNum2 [
 	a := aNum1.
 	b := aNum2.
 	(a isPoint or: [ b isPoint ]) ifTrue: [ 

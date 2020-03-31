@@ -2,8 +2,8 @@
 I represent a bilinear range for 2 limits, start and end
 "
 Class {
-	#name : #TSScaleBilinear,
-	#superclass : #TSScale,
+	#name : #NSScaleBilinear,
+	#superclass : #NSScale,
 	#instVars : [
 		'i',
 		'u'
@@ -12,17 +12,17 @@ Class {
 }
 
 { #category : #transformation }
-TSScaleBilinear >> invert: anObject [
+NSScaleBilinear >> invert: anObject [
 	self shouldNotImplement
 ]
 
 { #category : #hooks }
-TSScaleBilinear >> rescale [
+NSScaleBilinear >> rescale [
 	u := uninterpolate uninterpolate: domain first and: domain second.
 	i := interpolate interpolate: range first and: range second.
 ]
 
 { #category : #transformation }
-TSScaleBilinear >> scale: x [
+NSScaleBilinear >> scale: x [
 	^ i interpolate: (u uninterpolate: x)
 ]

@@ -7,5 +7,5 @@ Random >> rsNext: limit [
 
 { #category : #'*NumericInterpolator' }
 Random >> rsNext: u and: v [
-	^ TSScale linear range: {u. v}; scale: self next.
+	^ NSScale linear range: {u. v}; scale: self next.
 ]

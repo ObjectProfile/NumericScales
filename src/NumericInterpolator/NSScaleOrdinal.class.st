@@ -2,8 +2,8 @@
 I am a scale for ordinal ranges
 "
 Class {
-	#name : #TSScaleOrdinal,
-	#superclass : #TSScale,
+	#name : #NSScaleOrdinal,
+	#superclass : #NSScale,
 	#instVars : [
 		'ranger',
 		'dictionary',
@@ -14,12 +14,12 @@ Class {
 }
 
 { #category : #accessing }
-TSScaleOrdinal >> dictionary [ 
+NSScaleOrdinal >> dictionary [ 
 	^ dictionary 
 ]
 
 { #category : #accessing }
-TSScaleOrdinal >> domain: arr [
+NSScaleOrdinal >> domain: arr [
 	domain := OrderedCollection new.
 	dictionary := Dictionary new.
 	arr do: [ :xi |
@@ -30,7 +30,7 @@ TSScaleOrdinal >> domain: arr [
 ]
 
 { #category : #initialization }
-TSScaleOrdinal >> initialize [
+NSScaleOrdinal >> initialize [
 	super initialize.
 	ranger := #range:.
 	argument := #( #() ).
@@ -40,12 +40,12 @@ TSScaleOrdinal >> initialize [
 ]
 
 { #category : #transformation }
-TSScaleOrdinal >> invert: anObject [
+NSScaleOrdinal >> invert: anObject [
 	self shouldNotImplement
 ]
 
 { #category : #accessing }
-TSScaleOrdinal >> range: x [
+NSScaleOrdinal >> range: x [
 	range := x.
 	rangeBand := 0.
 	ranger := #range:.
@@ -53,22 +53,22 @@ TSScaleOrdinal >> range: x [
 ]
 
 { #category : #accessing }
-TSScaleOrdinal >> rangeBand [
+NSScaleOrdinal >> rangeBand [
 	^ rangeBand
 ]
 
 { #category : #public }
-TSScaleOrdinal >> rangeBands: x [
+NSScaleOrdinal >> rangeBands: x [
 	self rangeBands: x padding: 0
 ]
 
 { #category : #public }
-TSScaleOrdinal >> rangeBands: x padding: padding [
+NSScaleOrdinal >> rangeBands: x padding: padding [
 	self rangeBands: x padding: padding outerPadding: padding
 ]
 
 { #category : #public }
-TSScaleOrdinal >> rangeBands: x padding: padding outerPadding: outerPadding [
+NSScaleOrdinal >> rangeBands: x padding: padding outerPadding: outerPadding [
 	| start stop step reverse |
 	start := x first.
 	stop := x second.
@@ -88,22 +88,22 @@ TSScaleOrdinal >> rangeBands: x padding: padding outerPadding: outerPadding [
 ]
 
 { #category : #accessing }
-TSScaleOrdinal >> rangeExtent [
+NSScaleOrdinal >> rangeExtent [
 	^ self scaleExtent: argument first
 ]
 
 { #category : #accessing }
-TSScaleOrdinal >> rangeFrom: array [
+NSScaleOrdinal >> rangeFrom: array [
 	self range: (array collect: [ :val | Color colorFrom: val ])
 ]
 
 { #category : #public }
-TSScaleOrdinal >> rangePoints: x [
+NSScaleOrdinal >> rangePoints: x [
 	self rangePoints: x padding: 0
 ]
 
 { #category : #public }
-TSScaleOrdinal >> rangePoints: x padding: padding [
+NSScaleOrdinal >> rangePoints: x padding: padding [
 	| start stop step |
 	start := x first.
 	stop := x second.
@@ -120,17 +120,17 @@ TSScaleOrdinal >> rangePoints: x padding: padding [
 ]
 
 { #category : #public }
-TSScaleOrdinal >> rangeRoundBands: x [
+NSScaleOrdinal >> rangeRoundBands: x [
 	self rangeRoundBands: x padding: 0
 ]
 
 { #category : #public }
-TSScaleOrdinal >> rangeRoundBands: x padding: padding [
+NSScaleOrdinal >> rangeRoundBands: x padding: padding [
 	self rangeRoundBands: x padding: padding outerPadding: padding
 ]
 
 { #category : #public }
-TSScaleOrdinal >> rangeRoundBands: x padding: padding outerPadding: outerPadding [
+NSScaleOrdinal >> rangeRoundBands: x padding: padding outerPadding: outerPadding [
 	| start stop step reverse |
 	start := x first.
 	stop := x second.
@@ -150,12 +150,12 @@ TSScaleOrdinal >> rangeRoundBands: x padding: padding outerPadding: outerPadding
 ]
 
 { #category : #public }
-TSScaleOrdinal >> rangeRoundPoints: x [
+NSScaleOrdinal >> rangeRoundPoints: x [
 	self rangeRoundPoints: x padding: 0
 ]
 
 { #category : #public }
-TSScaleOrdinal >> rangeRoundPoints: x padding: padding [
+NSScaleOrdinal >> rangeRoundPoints: x padding: padding [
 	| start stop step |
 	start := x first.
 	stop := x second.
@@ -174,7 +174,7 @@ TSScaleOrdinal >> rangeRoundPoints: x padding: padding [
 ]
 
 { #category : #transformation }
-TSScaleOrdinal >> scale: x [
+NSScaleOrdinal >> scale: x [
 	| index |
 	index := dictionary at: x ifAbsent: [ nil ].
 	(index isNil and: [ ranger = #range:]) ifTrue: [
@@ -189,7 +189,7 @@ TSScaleOrdinal >> scale: x [
 ]
 
 { #category : #helpers }
-TSScaleOrdinal >> scaleExtent: d [
+NSScaleOrdinal >> scaleExtent: d [
 	| start stop |
 	start := d first.
 	stop := d last.
@@ -199,6 +199,6 @@ TSScaleOrdinal >> scaleExtent: d [
 ]
 
 { #category : #helpers }
-TSScaleOrdinal >> steps: start and: step [
+NSScaleOrdinal >> steps: start and: step [
 	^ (0 to: domain size - 1) collect: [ :i | (start + (step * i)) asFloat ].
 ]

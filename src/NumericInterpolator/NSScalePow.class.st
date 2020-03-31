@@ -2,8 +2,8 @@
 I scale using pow function
 "
 Class {
-	#name : #TSScalePow,
-	#superclass : #TSScaleLinear,
+	#name : #NSScalePow,
+	#superclass : #NSScaleLinear,
 	#instVars : [
 		'linear',
 		'exponent',
@@ -14,22 +14,22 @@ Class {
 }
 
 { #category : #accessing }
-TSScalePow >> clamp: x [
+NSScalePow >> clamp: x [
 	linear clamp: x
 ]
 
 { #category : #accessing }
-TSScalePow >> domain: x [
+NSScalePow >> domain: x [
 	linear domain: ((domain := x) collect: [ :i | powp scale: i ]).
 ]
 
 { #category : #accessing }
-TSScalePow >> exponent [
+NSScalePow >> exponent [
 	^ exponent
 ]
 
 { #category : #accessing }
-TSScalePow >> exponent: x [
+NSScalePow >> exponent: x [
 	exponent := x.
 	powp exponent: exponent.
 	powb exponent: 1/exponent.
@@ -37,45 +37,45 @@ TSScalePow >> exponent: x [
 ]
 
 { #category : #initialization }
-TSScalePow >> initialize [
+NSScalePow >> initialize [
 	super initialize.
 	linear := self class linear.
 	exponent := 1.
 	domain := #(0 1).
-	powp := TSScalePowPow exponent: exponent.
-	powb := TSScalePowPow exponent: 1 / exponent.
+	powp := NSScalePowPow exponent: exponent.
+	powb := NSScalePowPow exponent: 1 / exponent.
 ]
 
 { #category : #initialization }
-TSScalePow >> interpolate [
+NSScalePow >> interpolate [
 	^ linear interpolate
 ]
 
 { #category : #initialization }
-TSScalePow >> interpolate: x [
+NSScalePow >> interpolate: x [
 	linear interpolate: x
 ]
 
 { #category : #initialization }
-TSScalePow >> invert: x [
+NSScalePow >> invert: x [
 	^ powb scale: (linear invert: x)
 ]
 
 { #category : #initialization }
-TSScalePow >> range [
+NSScalePow >> range [
 	^ linear range
 ]
 
 { #category : #initialization }
-TSScalePow >> range: x [
+NSScalePow >> range: x [
 	linear range: x
 ]
 
 { #category : #initialization }
-TSScalePow >> rescale [
+NSScalePow >> rescale [
 ]
 
 { #category : #initialization }
-TSScalePow >> scale: x [
+NSScalePow >> scale: x [
 	^ linear scale: (powp scale: x)
 ]

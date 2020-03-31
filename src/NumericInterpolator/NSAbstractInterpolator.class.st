@@ -2,8 +2,8 @@
 I have two ranges the start an the stop
 "
 Class {
-	#name : #TSAbstractInterpolator,
-	#superclass : #TSInterpolator,
+	#name : #NSAbstractInterpolator,
+	#superclass : #NSInterpolator,
 	#instVars : [
 		'start',
 		'stop'
@@ -12,11 +12,11 @@ Class {
 }
 
 { #category : #accessing }
-TSAbstractInterpolator >> start: anObject [
+NSAbstractInterpolator >> start: anObject [
 	start := anObject
 ]
 
 { #category : #accessing }
-TSAbstractInterpolator >> stop: anObject [
+NSAbstractInterpolator >> stop: anObject [
 	stop := anObject
 ]

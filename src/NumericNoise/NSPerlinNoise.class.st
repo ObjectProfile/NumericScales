@@ -2,7 +2,7 @@
 Based on http://webstaff.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
 "
 Class {
-	#name : #TSPerlinNoise,
+	#name : #NSPerlinNoise,
 	#superclass : #Object,
 	#instVars : [
 		'grad3',
@@ -12,17 +12,17 @@ Class {
 }
 
 { #category : #private }
-TSPerlinNoise >> dot: arr and: x and: y [
+NSPerlinNoise >> dot: arr and: x and: y [
 	^ (arr first * x) + (arr second * y)
 ]
 
 { #category : #accessing }
-TSPerlinNoise >> grad3At: index [
+NSPerlinNoise >> grad3At: index [
 	^ grad3 at: index + 1
 ]
 
 { #category : #initialization }
-TSPerlinNoise >> initialize [
+NSPerlinNoise >> initialize [
 	| p |
 	super initialize.
 	grad3 := #( 
@@ -49,7 +49,7 @@ TSPerlinNoise >> initialize [
 ]
 
 { #category : #public }
-TSPerlinNoise >> noise: xin and: yin [
+NSPerlinNoise >> noise: xin and: yin [
 	"all this proces explained in http://webstaff.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf"
 	| f2 s i j g2 t xzero yzero x0 y0 i1 j1 x1 y1 x2 y2 ii jj gi0 gi1 gi2 t0 n0 t1 n1 t2 n2 |
 	f2 := 0.5 * (3 sqrt - 1).
@@ -100,6 +100,6 @@ TSPerlinNoise >> noise: xin and: yin [
 ]
 
 { #category : #accessing }
-TSPerlinNoise >> permAt: index [
+NSPerlinNoise >> permAt: index [
 	^ perm at: index + 1
 ]

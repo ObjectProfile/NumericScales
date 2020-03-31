@@ -2,8 +2,8 @@
 I follow the linear function
 "
 Class {
-	#name : #TSScaleLinear,
-	#superclass : #TSScale,
+	#name : #NSScaleLinear,
+	#superclass : #NSScale,
 	#instVars : [
 		'clamp',
 		'input',
@@ -13,70 +13,70 @@ Class {
 }
 
 { #category : #accessing }
-TSScaleLinear >> clamp: aBool [
+NSScaleLinear >> clamp: aBool [
 	"If clamp is specified, enables or disables clamping accordingly. If clamping is disabled and the scale is passed a value outside the domain, the scale may return a value outside the range through extrapolation. If clamping is enabled, the return value of the scale is always within the scale’s range."
 	clamp := aBool.
 	self rescale.
 ]
 
 { #category : #accessing }
-TSScaleLinear >> domain: x [
+NSScaleLinear >> domain: x [
 	super domain: x.
 	self rescale.
 ]
 
 { #category : #initialization }
-TSScaleLinear >> initialize [
+NSScaleLinear >> initialize [
 	super initialize.
 	range := domain := #(0 1).
 	clamp := false.
-	interpolate := TSInterpolator.
+	interpolate := NSInterpolator.
 	self rescale.
 ]
 
 { #category : #accessing }
-TSScaleLinear >> interpolate: x [
+NSScaleLinear >> interpolate: x [
 	interpolate := x.
 	self rescale.
 ]
 
 { #category : #transformation }
-TSScaleLinear >> invert: y [
+NSScaleLinear >> invert: y [
 	^ input scale: y.
 ]
 
 { #category : #accessing }
-TSScaleLinear >> range: r [
+NSScaleLinear >> range: r [
 	super range: r.
 	self rescale.
 ]
 
 { #category : #accessing }
-TSScaleLinear >> rangeRound: x [
+NSScaleLinear >> rangeRound: x [
 	"x is a range"
 	self 
 		range: x;
-		interpolate: TSRoundInterpolator.
+		interpolate: NSRoundInterpolator.
 ]
 
 { #category : #hooks }
-TSScaleLinear >> rescale [
+NSScaleLinear >> rescale [
 	| linear |
 	linear := (domain size min: range size ) > 2
-		ifTrue: [ TSScalePolylinear ]
-		ifFalse: [ TSScaleBilinear ].
+		ifTrue: [ NSScalePolylinear ]
+		ifFalse: [ NSScaleBilinear ].
 	uninterpolate := clamp
-		ifTrue: [ TSUninterpolateClamp ]
-		ifFalse: [ TSUninterpolateNumber ].
+		ifTrue: [ NSUninterpolateClamp ]
+		ifFalse: [ NSUninterpolateNumber ].
 	output := linear new domain: domain; range: range; 
 		uninterpolate: uninterpolate; interpolate: interpolate.
 	output rescale.
 	input := linear new domain: range; range: domain;
-		uninterpolate: uninterpolate; interpolate: TSInterpolator.
+		uninterpolate: uninterpolate; interpolate: NSInterpolator.
 	input rescale.
 ]
 
 { #category : #transformation }
-TSScaleLinear >> scale: x [
+NSScaleLinear >> scale: x [
 	^ output scale: x
 ]
