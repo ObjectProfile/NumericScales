@@ -11,11 +11,17 @@ Class {
 BaselineOfNumericScales >> baseline: spec [
 	<baseline>
 	spec for: #common do: [
-		spec package: #'NumericScales'.
-			
 		spec 
-			group: 'Core' with: #('NumericScales');
-			group: 'default' with: #('Core') ].		
+			package: #'NumericInterpolator';
+			package: #'NumericNoise';
+			package: #'NumericInterpolator-Test'.
+		
+		spec 
+			group: 'Core' with: #(
+				'NumericInterpolator'
+				NumericNoise);
+			group: 'Tests' with: #('Core' 'NumericInterpolator-Test');
+			group: 'default' with: #('Core' 'Tests') ].		
 	
 
 

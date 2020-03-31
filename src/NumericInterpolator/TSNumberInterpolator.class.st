@@ -4,7 +4,7 @@ I am the basic interpolator for numbers
 Class {
 	#name : #TSNumberInterpolator,
 	#superclass : #TSAbstractInterpolator,
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Interpolators'
 }
 
 { #category : #interpolation }

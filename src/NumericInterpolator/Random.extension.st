@@ -1,11 +1,11 @@
 Extension { #name : #Random }
 
-{ #category : #'*NumericScales' }
+{ #category : #'*NumericInterpolator' }
 Random >> rsNext: limit [
 	^ self rsNext: 0 and: limit.
 ]
 
-{ #category : #'*NumericScales' }
+{ #category : #'*NumericInterpolator' }
 Random >> rsNext: u and: v [
 	^ TSScale linear range: {u. v}; scale: self next.
 ]

@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'exponent'
 	],
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Scales'
 }
 
 { #category : #'instance creation' }

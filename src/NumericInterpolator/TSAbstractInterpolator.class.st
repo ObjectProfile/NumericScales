@@ -8,7 +8,7 @@ Class {
 		'start',
 		'stop'
 	],
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Interpolators'
 }
 
 { #category : #accessing }

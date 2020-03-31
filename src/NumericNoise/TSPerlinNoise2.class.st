@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'p'
 	],
-	#category : #'NumericScales-Noises'
+	#category : #NumericNoise
 }
 
 { #category : #public }

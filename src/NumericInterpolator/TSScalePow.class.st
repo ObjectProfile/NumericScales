@@ -10,7 +10,7 @@ Class {
 		'powp',
 		'powb'
 	],
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Scales'
 }
 
 { #category : #accessing }

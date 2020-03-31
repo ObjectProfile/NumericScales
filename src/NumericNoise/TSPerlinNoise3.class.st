@@ -8,7 +8,7 @@ Class {
 		'octaves',
 		'p'
 	],
-	#category : #'NumericScales-Noises'
+	#category : #NumericNoise
 }
 
 { #category : #public }

@@ -9,7 +9,7 @@ Class {
 		'base',
 		'positive'
 	],
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Scales'
 }
 
 { #category : #accessing }

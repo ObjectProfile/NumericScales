@@ -11,7 +11,7 @@ Class {
 		'a',
 		'b'
 	],
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Interpolators'
 }
 
 { #category : #interpolating }

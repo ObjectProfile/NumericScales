@@ -8,7 +8,7 @@ Class {
 		'grad3',
 		'perm'
 	],
-	#category : #'NumericScales-Noises'
+	#category : #NumericNoise
 }
 
 { #category : #private }

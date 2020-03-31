@@ -4,7 +4,7 @@ I am a interpolator to round numbers
 Class {
 	#name : #TSRoundInterpolator,
 	#superclass : #TSAbstractInterpolator,
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Interpolators'
 }
 
 { #category : #interpolation }

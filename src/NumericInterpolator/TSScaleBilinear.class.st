@@ -8,7 +8,7 @@ Class {
 		'i',
 		'u'
 	],
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Scales'
 }
 
 { #category : #transformation }

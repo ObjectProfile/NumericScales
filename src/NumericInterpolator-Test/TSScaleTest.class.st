@@ -4,7 +4,7 @@ A TSScaleTest is a test class for testing the behavior of TSScale
 Class {
 	#name : #TSScaleTest,
 	#superclass : #TestCase,
-	#category : #'NumericScales-Tests'
+	#category : #'NumericInterpolator-Test'
 }
 
 { #category : #'test - colors' }

@@ -10,7 +10,7 @@ The basic interpolation is between 2 values
 Class {
 	#name : #TSInterpolator,
 	#superclass : #Object,
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Interpolators'
 }
 
 { #category : #interpolation }

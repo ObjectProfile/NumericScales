@@ -9,7 +9,7 @@ Class {
 		'input',
 		'output'
 	],
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Scales'
 }
 
 { #category : #accessing }

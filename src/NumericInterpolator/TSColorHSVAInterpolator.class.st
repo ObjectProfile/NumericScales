@@ -1,17 +1,17 @@
 "
-reate a color with the given hue, saturation, lightness, and alpha.
+Same as TSColorRGBAInterpolation but for hsva  
 "
 Class {
-	#name : #TSColorHSLAInterpolator,
+	#name : #TSColorHSVAInterpolator,
 	#superclass : #TSColorRGBAInterpolator,
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Interpolators'
 }
 
 { #category : #interpolation }
-TSColorHSLAInterpolator >> interpolate: t [
+TSColorHSVAInterpolator >> interpolate: t [
 	^ Color
 		h: start hue + ((stop hue - start hue) * t)
-		s: start hslSaturation + ((stop hslSaturation - start hslSaturation)  * t)
+		s: start hsvSaturation + ((stop hsvSaturation - start hsvSaturation)  * t)
 		l: start luminance + ((stop luminance - start luminance) * t)
 		alpha: start alpha + ((stop alpha - start alpha) * t)
 ]

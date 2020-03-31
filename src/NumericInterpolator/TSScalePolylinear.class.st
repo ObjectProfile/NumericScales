@@ -9,7 +9,7 @@ Class {
 		'u',
 		'i'
 	],
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Scales'
 }
 
 { #category : #private }

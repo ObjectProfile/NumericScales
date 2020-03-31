@@ -4,7 +4,7 @@ I am the interpolator  for colors
 Class {
 	#name : #TSColorRGBAInterpolator,
 	#superclass : #TSAbstractInterpolator,
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Interpolators'
 }
 
 { #category : #'color categories' }

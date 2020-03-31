@@ -25,7 +25,7 @@ Class {
 		'interpolate',
 		'uninterpolate'
 	],
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Scales'
 }
 
 { #category : #'instance creation' }

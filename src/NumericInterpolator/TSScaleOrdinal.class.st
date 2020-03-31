@@ -10,7 +10,7 @@ Class {
 		'argument',
 		'rangeBand'
 	],
-	#category : #'NumericScales-Core'
+	#category : #'NumericInterpolator-Scales'
 }
 
 { #category : #accessing }
