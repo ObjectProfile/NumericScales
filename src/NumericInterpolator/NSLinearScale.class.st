@@ -2,7 +2,7 @@
 I follow the linear function
 "
 Class {
-	#name : #NSScaleLinear,
+	#name : #NSLinearScale,
 	#superclass : #NSScale,
 	#instVars : [
 		'clamp',
@@ -13,20 +13,20 @@ Class {
 }
 
 { #category : #accessing }
-NSScaleLinear >> clamp: aBool [
+NSLinearScale >> clamp: aBool [
 	"If clamp is specified, enables or disables clamping accordingly. If clamping is disabled and the scale is passed a value outside the domain, the scale may return a value outside the range through extrapolation. If clamping is enabled, the return value of the scale is always within the scale’s range."
 	clamp := aBool.
 	self rescale.
 ]
 
 { #category : #accessing }
-NSScaleLinear >> domain: x [
+NSLinearScale >> domain: x [
 	super domain: x.
 	self rescale.
 ]
 
 { #category : #initialization }
-NSScaleLinear >> initialize [
+NSLinearScale >> initialize [
 	super initialize.
 	range := domain := #(0 1).
 	clamp := false.
@@ -35,24 +35,34 @@ NSScaleLinear >> initialize [
 ]
 
 { #category : #accessing }
-NSScaleLinear >> interpolate: x [
+NSLinearScale >> input [
+	^ input
+]
+
+{ #category : #accessing }
+NSLinearScale >> interpolate: x [
 	interpolate := x.
 	self rescale.
 ]
 
 { #category : #transformation }
-NSScaleLinear >> invert: y [
+NSLinearScale >> invert: y [
 	^ input scale: y.
 ]
 
 { #category : #accessing }
-NSScaleLinear >> range: r [
+NSLinearScale >> output [
+	^ output
+]
+
+{ #category : #accessing }
+NSLinearScale >> range: r [
 	super range: r.
 	self rescale.
 ]
 
 { #category : #accessing }
-NSScaleLinear >> rangeRound: x [
+NSLinearScale >> rangeRound: x [
 	"x is a range"
 	self 
 		range: x;
@@ -60,11 +70,11 @@ NSScaleLinear >> rangeRound: x [
 ]
 
 { #category : #hooks }
-NSScaleLinear >> rescale [
+NSLinearScale >> rescale [
 	| linear |
 	linear := (domain size min: range size ) > 2
-		ifTrue: [ NSScalePolylinear ]
-		ifFalse: [ NSScaleBilinear ].
+		ifTrue: [ NSPolylinearScale ]
+		ifFalse: [ NSBilinearScale ].
 	uninterpolate := clamp
 		ifTrue: [ NSUninterpolateClamp ]
 		ifFalse: [ NSUninterpolateNumber ].
@@ -77,6 +87,6 @@ NSScaleLinear >> rescale [
 ]
 
 { #category : #transformation }
-NSScaleLinear >> scale: x [
+NSLinearScale >> scale: x [
 	^ output scale: x
 ]

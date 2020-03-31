@@ -2,7 +2,7 @@
 I represent a bilinear range for 2 limits, start and end
 "
 Class {
-	#name : #NSScaleBilinear,
+	#name : #NSBilinearScale,
 	#superclass : #NSScale,
 	#instVars : [
 		'i',
@@ -12,17 +12,17 @@ Class {
 }
 
 { #category : #transformation }
-NSScaleBilinear >> invert: anObject [
+NSBilinearScale >> invert: anObject [
 	self shouldNotImplement
 ]
 
 { #category : #hooks }
-NSScaleBilinear >> rescale [
+NSBilinearScale >> rescale [
 	u := uninterpolate uninterpolate: domain first and: domain second.
 	i := interpolate interpolate: range first and: range second.
 ]
 
 { #category : #transformation }
-NSScaleBilinear >> scale: x [
+NSBilinearScale >> scale: x [
 	^ i interpolate: (u uninterpolate: x)
 ]

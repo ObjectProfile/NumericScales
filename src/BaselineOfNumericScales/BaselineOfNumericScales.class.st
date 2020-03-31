@@ -14,13 +14,13 @@ BaselineOfNumericScales >> baseline: spec [
 		spec 
 			package: #'NumericInterpolator';
 			package: #'NumericNoise';
-			package: #'NumericInterpolator-Test'.
+			package: #'NumericInterpolator-Tests'.
 		
 		spec 
 			group: 'Core' with: #(
 				'NumericInterpolator'
 				NumericNoise);
-			group: 'Tests' with: #('Core' 'NumericInterpolator-Test');
+			group: 'Tests' with: #('Core' 'NumericInterpolator-Tests');
 			group: 'default' with: #('Core' 'Tests') ].		
 	
 

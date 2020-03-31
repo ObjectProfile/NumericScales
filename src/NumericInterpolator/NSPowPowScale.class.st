@@ -2,7 +2,7 @@
 I am a utility clas for NSScalePow
 "
 Class {
-	#name : #NSScalePowPow,
+	#name : #NSPowPowScale,
 	#superclass : #Object,
 	#instVars : [
 		'exponent'
@@ -11,19 +11,19 @@ Class {
 }
 
 { #category : #'instance creation' }
-NSScalePowPow class >> exponent: exponent [
+NSPowPowScale class >> exponent: exponent [
 	^ self new 
 		exponent: exponent;
 		yourself
 ]
 
 { #category : #accessing }
-NSScalePowPow >> exponent: aNumber [
+NSPowPowScale >> exponent: aNumber [
 	exponent := aNumber
 ]
 
 { #category : #transformations }
-NSScalePowPow >> scale: x [
+NSPowPowScale >> scale: x [
 	^ x < 0
 		ifTrue: [ (x negated raisedTo: exponent) negated ]
 		ifFalse: [ x raisedTo: exponent ]

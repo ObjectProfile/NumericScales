@@ -24,51 +24,51 @@ Class {
 	#category : #'NumericInterpolator-Scales'
 }
 
-{ #category : #'instance creation' }
+{ #category : #colors }
 NSScale class >> category10 [
 	^ self fromColorCategory: #category10
 ]
 
-{ #category : #'instance creation' }
+{ #category : #colors }
 NSScale class >> category20 [
 	^ self fromColorCategory: #category20
 ]
 
-{ #category : #'instance creation' }
+{ #category : #colors }
 NSScale class >> category20b [
 	^ self fromColorCategory: #category20b
 ]
 
-{ #category : #'instance creation' }
+{ #category : #colors }
 NSScale class >> category20c [
 	^ self fromColorCategory: #category20c
 ]
 
-{ #category : #'instance creation' }
+{ #category : #colors }
 NSScale class >> eva10 [
 	^ self fromColorCategory: #eva10
 ]
 
-{ #category : #'instance creation' }
+{ #category : #colors }
 NSScale class >> fromColorCategory: symbol [
 	^ self ordinal 
 		range: (NSColorRGBAInterpolator perform: symbol);
 		yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : #colors }
 NSScale class >> google20 [
 	^ self fromColorCategory: #google20
 ]
 
 { #category : #'instance creation' }
 NSScale class >> linear [
-	^ NSScaleLinear new. 
+	^ NSLinearScale new. 
 ]
 
 { #category : #'instance creation' }
 NSScale class >> log [
-	^ NSScaleLog new
+	^ NSLogScale new
 ]
 
 { #category : #'instance creation' }
@@ -86,20 +86,20 @@ RSHorizontalLineLayout new gapSize: 0; on: boxes.
 v @ RSControlsView.
 v open
 "
-	^ NSScaleOrdinal new 
+	^ NSOrdinalScale new 
 ]
 
-{ #category : #'instance creation' }
+{ #category : #colors }
 NSScale class >> paired12 [
 	^ self fromColorCategory: #paired12
 ]
 
 { #category : #'instance creation' }
 NSScale class >> pow [
-	^ NSScalePow new
+	^ NSPowScale new
 ]
 
-{ #category : #'instance creation' }
+{ #category : #colors }
 NSScale class >> sky8 [
 	^ self fromColorCategory: #sky8
 ]

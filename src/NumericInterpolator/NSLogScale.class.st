@@ -2,8 +2,8 @@
 for scale log
 "
 Class {
-	#name : #NSScaleLog,
-	#superclass : #NSScaleLinear,
+	#name : #NSLogScale,
+	#superclass : #NSLinearScale,
 	#instVars : [
 		'linear',
 		'base',
@@ -13,30 +13,30 @@ Class {
 }
 
 { #category : #accessing }
-NSScaleLog >> base [
+NSLogScale >> base [
 	^ base
 ]
 
 { #category : #accessing }
-NSScaleLog >> base: number [
+NSLogScale >> base: number [
 	base := number.
 	linear domain: (domain collect: [:n | self lg: n ]).
 ]
 
 { #category : #accessing }
-NSScaleLog >> clamp: x [
+NSLogScale >> clamp: x [
 	 linear clamp: x
 ]
 
 { #category : #accessing }
-NSScaleLog >> domain: arr [
+NSLogScale >> domain: arr [
 	positive := arr first >= 0.
 	domain := arr.
 	linear domain: (arr collect: [:n | self lg: n]).
 ]
 
 { #category : #initialization }
-NSScaleLog >> initialize [
+NSLogScale >> initialize [
 	super initialize.
 	linear := self class linear.
 	base := 10.
@@ -45,22 +45,22 @@ NSScaleLog >> initialize [
 ]
 
 { #category : #accessing }
-NSScaleLog >> interpolate [
+NSLogScale >> interpolate [
 	^ linear interpolate
 ]
 
 { #category : #accessing }
-NSScaleLog >> interpolate: x [
+NSLogScale >> interpolate: x [
 	linear interpolate: x
 ]
 
 { #category : #transformation }
-NSScaleLog >> invert: x [
+NSLogScale >> invert: x [
 	^ self pow: (linear invert: x).
 ]
 
 { #category : #'math functions' }
-NSScaleLog >> lg: x [
+NSLogScale >> lg: x [
 	"logarithm"
 	^ (positive 
 		ifTrue: [ (x max: 0) ln ]
@@ -70,7 +70,7 @@ NSScaleLog >> lg: x [
 ]
 
 { #category : #'math functions' }
-NSScaleLog >> pow: x [
+NSLogScale >> pow: x [
 	^ positive  
 		ifTrue: [ base raisedTo: x ]
 		ifFalse: [ (base raisedTo: x negated) negated ].
@@ -78,16 +78,16 @@ NSScaleLog >> pow: x [
 ]
 
 { #category : #accessing }
-NSScaleLog >> range [
+NSLogScale >> range [
 	^ linear range
 ]
 
 { #category : #accessing }
-NSScaleLog >> range: x [
+NSLogScale >> range: x [
 	linear range: x
 ]
 
 { #category : #transformation }
-NSScaleLog >> scale: x [
+NSLogScale >> scale: x [
 	^ linear scale: (self lg: x)
 ]

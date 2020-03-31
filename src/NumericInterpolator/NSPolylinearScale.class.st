@@ -2,7 +2,7 @@
 I can handle a several kind of values
 "
 Class {
-	#name : #NSScalePolylinear,
+	#name : #NSPolylinearScale,
 	#superclass : #NSScale,
 	#instVars : [
 		'k',
@@ -13,7 +13,7 @@ Class {
 }
 
 { #category : #private }
-NSScalePolylinear >> findJ: x [
+NSPolylinearScale >> findJ: x [
 	| lo hi mid |
 	lo := 2.
 	hi := k.
@@ -26,12 +26,12 @@ NSScalePolylinear >> findJ: x [
 ]
 
 { #category : #transformation }
-NSScalePolylinear >> invert: anObject [
+NSPolylinearScale >> invert: anObject [
 	self shouldNotImplement
 ]
 
 { #category : #hooks }
-NSScalePolylinear >> rescale [
+NSPolylinearScale >> rescale [
 	| obj |
 	u := OrderedCollection new.
 	i := OrderedCollection new.
@@ -51,7 +51,7 @@ NSScalePolylinear >> rescale [
 ]
 
 { #category : #transformation }
-NSScalePolylinear >> scale: x [
+NSPolylinearScale >> scale: x [
 	| j |
 	j := self findJ: x.
 	^ (i at: j) interpolate: ((u at: j) uninterpolate: x)
