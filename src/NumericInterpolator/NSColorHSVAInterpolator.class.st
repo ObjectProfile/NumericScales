@@ -1,5 +1,5 @@
 "
-Same as TSColorRGBAInterpolation but for hsva  
+Same as NSColorRGBAInterpolation but for hsva  
 "
 Class {
 	#name : #NSColorHSVAInterpolator,

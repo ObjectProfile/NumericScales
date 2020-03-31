@@ -1,8 +1,8 @@
 "
 I am the basic uninterpolator, my subclasses are
 
-TSUninterpolateClamp
-TSUninterpolateNumber
+NSUninterpolateClamp
+NSUninterpolateNumber
 "
 Class {
 	#name : #NSUninterpolate,

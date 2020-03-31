@@ -1,5 +1,5 @@
 "
-I am a utility clas for CAScalePow
+I am a utility clas for NSScalePow
 "
 Class {
 	#name : #NSScalePowPow,

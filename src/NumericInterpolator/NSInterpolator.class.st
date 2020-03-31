@@ -1,8 +1,8 @@
 "
 I determine the correct interpolator for a kind of data
 my subclasses 
-CAColorInterpolator
-RTNumberInterpolator
+NSColorInterpolator
+NSNumberInterpolator
 
 The basic interpolation is between 2 values 
 0 and 1, usually the value between these values is called 't'

@@ -1,5 +1,5 @@
 "
-A TSScaleTest is a test class for testing the behavior of TSScale
+A NSScaleTest is a test class for testing the behavior of NSScale
 "
 Class {
 	#name : #NSScaleTest,

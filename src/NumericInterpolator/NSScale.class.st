@@ -4,17 +4,13 @@ I am inspired in the d3 implementation of scales you can find the source code in
 
 Here is an example:
 -=-=-=
-s := TSScale linear.
+s := NSScale linear.
 s range: { 5 . 10 }.
 s scale: 0. ""=> 5""
 s scale: 0.5. ""=> 7.5""
 s scale: 1. ""=> 10""
 -=-=-=
 
-Another example:
--=-=-=
-s := TSScale linear.
--=-=-=
 "
 Class {
 	#name : #NSScale,
