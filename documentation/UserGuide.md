@@ -19,7 +19,7 @@ In this case a scale is a `f(x) = y`. `x` belongs to Domain. `y` belongs to Rang
 The default values for the domain and the range is: `#(0 1)`.
 
 
-In Numberic Scales, all main scales are subclasses of `TSScale`.Scales have 2 methods `domain:` and `range:`.
+In Numberic Scales, all main scales are subclasses of `NSScale`.Scales have 2 methods `domain:` and `range:`.
 
 ```Smalltalk
 x domain: #(0 100)."the start value is 0, the end value is 100"
@@ -34,14 +34,14 @@ Continuous scales map a continuous quantitative input from the domain to a conti
 Given a value from the domain, returns a correcponding value from the range. If the given value is outside the domain and clamping is not enabled, the mapping may be extrapolated such that the returned value is outside the range.
 
 ```Smalltalk
-x := TSScale linear domain: #(10 130); range: #(0 960).
+x := NSScale linear domain: #(10 130); range: #(0 960).
 x scale: 20."80"
 x scale: 50."320"
 ```
 Or to apply a color encoding:
 
 ```Smalltalk
-color := TSScale linear domain: #(10 100); range: #(red blue).
+color := NSScale linear domain: #(10 100); range: #(red blue).
 color scale: 10. "red".
 color scale: 100. "blue".
 ```
@@ -51,7 +51,7 @@ color scale: 100. "blue".
 Given a value from the range, returns a corresponding value from the domain.
 
 ```Smalltalk
-x := TSScale linear domain: #(10 130); range: #(0 960).
+x := NSScale linear domain: #(10 130); range: #(0 960).
 x invert: 80. "20".
 x invert: 320. "50"
 ```
@@ -61,7 +61,7 @@ If the given value is outside the range, and clamping is not enabled, the mappin
 The continuous scales typically have have 2 value in their domain and range, specifying move than two values produces a piecewise scale. 
 
 ```Smalltalk
-color := TSScale linear
+color := NSScale linear
 	domain: #(-1 0 1);
 	range: #(red white green).
 color scale: -0.5. "red-white"
