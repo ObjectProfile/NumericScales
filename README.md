@@ -28,10 +28,10 @@ spec package: 'NumericScales'with: [
 
 ## Quick start
 
-The entry point is `TSScale` the package `NumericScales` contains a collection of Scales that you can use to your project, like: linear, log, pow, ordinal and polylinear.
+The entry point is `NSScale` the package `NumericScales` contains a collection of Scales that you can use to your project, like: linear, log, pow, ordinal and polylinear.
 
 ```Smalltalk
-scale := TSScale linear
+scale := NSScale linear
 	domain: { 0. 100};
 	range: { 'red'. 'blue' }.
 scale scale: 100.
