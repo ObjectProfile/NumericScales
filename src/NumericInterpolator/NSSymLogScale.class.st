@@ -1,5 +1,7 @@
 "
 I order to have a generic log scale for positive and negative log scales 
+
+Inspired from https://github.com/d3/d3-scale/blob/master/src/symlog.js
 "
 Class {
 	#name : #NSSymLogScale,
