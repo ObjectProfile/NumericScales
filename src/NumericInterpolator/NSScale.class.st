@@ -111,6 +111,11 @@ NSScale class >> sqrt [
 		yourself
 ]
 
+{ #category : #'instance creation' }
+NSScale class >> symlog [
+	^ NSSymLogScale new
+]
+
 { #category : #accessing }
 NSScale >> domain [
 	^ domain

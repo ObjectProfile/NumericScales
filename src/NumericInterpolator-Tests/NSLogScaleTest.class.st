@@ -35,3 +35,17 @@ NSLogScaleTest >> testLogScale [
 	
 
 ]
+
+{ #category : #'test - scales' }
+NSLogScaleTest >> testNA [
+	| log |
+	log := NSLogScale new.
+	self assert: (log scale: 10) closeTo: 1.0.
+	self assert: (log scale: 1) closeTo: 0.
+	self assert: (log scale: 0.5) closeTo: -0.30102999566398114.
+	self assert: (log scale: 0.1) closeTo: -0.9999999999999998.
+	self assert: (log scale: 0.001) closeTo: -2.9999999999999996.
+	self assert: (log scale: 0) isNaN.
+	self assert: (log scale: -1) isNaN.
+	self assert: (log scale: -10) isNaN.
+]

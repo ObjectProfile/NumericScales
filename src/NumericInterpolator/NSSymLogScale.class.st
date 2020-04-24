@@ -11,7 +11,7 @@ Class {
 	#category : #'NumericInterpolator-Scales'
 }
 
-{ #category : #initialization }
+{ #category : #accessing }
 NSSymLogScale >> clamp: x [
 	 linear clamp: x
 ]
@@ -26,30 +26,55 @@ NSSymLogScale >> constant: aNumber [
 	constant := aNumber.
 ]
 
-{ #category : #initialization }
-NSSymLogScale >> initialize [
-	super initialize.
-	linear := self class linear.
-	self constant: 1.
-	
+{ #category : #accessing }
+NSSymLogScale >> domain: arr [
+	domain := arr.
+	linear domain: (arr collect: [ :i | self transformSymLog: i ]).
 ]
 
 { #category : #initialization }
+NSSymLogScale >> initialize [
+	super initialize.
+	self constant: 1.
+	linear := self class linear.
+]
+
+{ #category : #accessing }
 NSSymLogScale >> interpolate [
 	^ linear interpolate
 ]
 
-{ #category : #initialization }
+{ #category : #accessing }
 NSSymLogScale >> interpolate: x [
 	linear interpolate: x
 ]
 
-{ #category : #initialization }
+{ #category : #accessing }
 NSSymLogScale >> invert: x [
-	^ self pow: (linear invert: x).
+	^ self transformSymExp: (linear invert: x).
 ]
 
-{ #category : #initialization }
+{ #category : #accessing }
+NSSymLogScale >> range [
+	^ linear range
+]
+
+{ #category : #accessing }
+NSSymLogScale >> range: x [
+	linear range: x
+]
+
+{ #category : #accessing }
 NSSymLogScale >> scale: x [
-	^ linear scale: (self lg: x)
+	^ linear scale: (self transformSymLog: x)
+]
+
+{ #category : #accessing }
+NSSymLogScale >> transformSymExp: x [
+	^ x sign *  (1 + x abs) exp * constant
+]
+
+{ #category : #accessing }
+NSSymLogScale >> transformSymLog: x [
+	^ x sign * (1+ (x / constant) abs) ln
 ]
