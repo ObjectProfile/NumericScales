@@ -162,6 +162,16 @@ NSScale >> invert: anObject [
 	self subclassResponsibility.
 ]
 
+{ #category : #printing }
+NSScale >> printOn: stream [
+	super printOn: stream.
+	stream << '('.
+	self domain printOn: stream.
+	stream << ', '.
+	self range printOn: stream.
+	stream << ')'.
+]
+
 { #category : #accessing }
 NSScale >> range [
 	^ range

@@ -63,7 +63,7 @@ NSSymLogScale >> range [
 
 { #category : #accessing }
 NSSymLogScale >> range: x [
-	linear range: x
+	linear range: x.
 ]
 
 { #category : #accessing }
@@ -73,10 +73,10 @@ NSSymLogScale >> scale: x [
 
 { #category : #accessing }
 NSSymLogScale >> transformSymExp: x [
-	^ x sign *  (1 + x abs) exp * constant
+	^ x sign *  (1.0 + x abs) exp * constant
 ]
 
 { #category : #accessing }
 NSSymLogScale >> transformSymLog: x [
-	^ x sign * (1+ (x / constant) abs) ln
+	^ x sign * (1.0 + (x / constant) abs) ln
 ]
