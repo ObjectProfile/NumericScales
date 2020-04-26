@@ -67,6 +67,11 @@ NSScale class >> linear [
 ]
 
 { #category : #'instance creation' }
+NSScale class >> ln [
+	^ NSLnScale new
+]
+
+{ #category : #'instance creation' }
 NSScale class >> log [
 	^ NSLogScale new
 ]
