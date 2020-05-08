@@ -78,18 +78,27 @@ NSScale class >> log [
 
 { #category : #'instance creation' }
 NSScale class >> ordinal [
-"Define an ordinal scale. Here is an example:
+"Define an ordinal scale.
 
-v := RSView new.
-colors := TSScale ordinal range: { Color red . Color yellow . Color blue }.
-boxes := RSShapeBuilder box
-				size: 20;
-				color: [ :vv | colors scale: vv ];
-				elementsOn: ((1 to: 10) collect: [:vv | vv // 2 ]) shuffled.
-v addAll: boxes.
-RSHorizontalLineLayout new gapSize: 0; on: boxes.
-v @ RSControlsView.
-v open
+
+Example:
+```Smalltalk
+c := RSCanvas new.
+colors := NSScale ordinal range: { Color red translucent . Color yellow translucent . Color blue translucent }.
+
+r := Random seed: 42.
+100 timesRepeat: [ 
+	txt := { 'hello' . 'bonjour' . 'Guten Morgen' } atRandom: r.
+	g := RSGroup new.
+	g add: (RSBox new width: 130; height: 20; model: txt; color: (colors scale: txt)).
+	g add: (RSLabel new text: txt).
+	c add: g asShape.
+	 ].
+
+RSGridLayout new lineItemsCount: 5; on: c shapes.
+c @ RSCanvasController.
+c open
+```
 "
 	^ NSOrdinalScale new 
 ]
