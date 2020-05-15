@@ -24,6 +24,11 @@ NSLogScale >> base: number [
 ]
 
 { #category : #accessing }
+NSLogScale >> clamp [
+	^ linear clamp
+]
+
+{ #category : #accessing }
 NSLogScale >> clamp: x [
 	 linear clamp: x
 ]
@@ -92,4 +97,14 @@ NSLogScale >> range: x [
 { #category : #transformation }
 NSLogScale >> scale: x [
 	^ linear scale: (self lg: x)
+]
+
+{ #category : #accessing }
+NSLogScale >> uninterpolate [
+	^ linear uninterpolate
+]
+
+{ #category : #accessing }
+NSLogScale >> uninterpolate: anUninterolator [
+	linear uninterpolate: anUninterolator
 ]

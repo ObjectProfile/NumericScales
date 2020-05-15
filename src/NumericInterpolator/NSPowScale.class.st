@@ -14,6 +14,11 @@ Class {
 }
 
 { #category : #accessing }
+NSPowScale >> clamp [
+	^ linear clamp
+]
+
+{ #category : #accessing }
 NSPowScale >> clamp: x [
 	linear clamp: x
 ]

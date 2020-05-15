@@ -14,6 +14,11 @@ Class {
 }
 
 { #category : #accessing }
+NSSymLogScale >> clamp [
+	^ linear clamp
+]
+
+{ #category : #accessing }
 NSSymLogScale >> clamp: x [
 	 linear clamp: x
 ]

@@ -11,6 +11,11 @@ Class {
 }
 
 { #category : #accessing }
+NSLnScale >> clamp [
+	^ linear clamp
+]
+
+{ #category : #accessing }
 NSLnScale >> clamp: x [
 	 linear clamp: x
 ]

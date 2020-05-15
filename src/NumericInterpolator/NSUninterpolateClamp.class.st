@@ -1,6 +1,20 @@
 "
-I do not allow a value get off the scale of 
-0 to 1
+I am a private class useful to uninterpolate a value in the range { 0. 1 }.
+
+Scales with `clamp:` should limit their ranges and domains.
+
+Example
+```Smalltalk
+x := NSScale linear
+	clamp: true;
+	domain: { -100. 100 };
+	range: { 500. 1000 }.
+x scale: 200.
+""1000""
+x invert: 1250.
+""100""
+``` 
+
 "
 Class {
 	#name : #NSUninterpolateClamp,
