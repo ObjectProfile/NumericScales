@@ -1,14 +1,14 @@
 "
 <keyClass>
-`NSScale` is a common scale interpolator. It transformes numerical or ordinal values using a range and a domain. `NSScale` offers several scales as class side methods. The code of the scales are inspired from https://github.com/d3/d3-scale
+`NSScale` is a common scale interpolator. It transformes numerical or ordinal values using a range and a domain. A scale maps _a domain to a range_. `NSScale` offers several scales as class side methods. The code of the scales are inspired from https://github.com/d3/d3-scale
 
 *Responsibility*: act as a scale interpolator for numerical and ordinal values.
 
 *Collaborators*: `NSScale` depends on a number of Pharo packages, including `Colors`, `Random-Core`. The scales are intensively used by Roassal
 
 *Variables*:
-- `range`: contains an array of two elements. The range variable defines the range of the scaled value.
-- `VARIABLE2`:
+- `range`: an array of two or more values to which the domain is mapped to. The range variable defines the range of the scaled value. A range may contains values or colors.
+- `domain`: an array of values that maps to a range
 
 *Example*:
 ```Smalltalk
@@ -32,6 +32,25 @@ s range: { Color white . Color black }.
 s scale: 0.5  ""=> Color gray""
 ```
 
+Here is a larger example:
+```
+sc := NSScale linear 
+	range: { #white . #gray . #red };
+	domain: { 0 . 1 . 2}.
+
+ss := NSScale linear 
+	range: { 80 . 30 . 80 };
+	domain: { 0 . 1 . 2}.
+	 
+c := RSCanvas new.
+0 to: 2 by: 0.1 do: [ :i |
+	s := RSBox new width: 30; height: (ss scale: i); model: i; color: (sc scale: i).
+	c add: s ].
+
+RSHorizontalLineLayout on: c shapes.
+c @ RSCanvasController.
+c open
+```
 "
 Class {
 	#name : #NSScale,
@@ -209,24 +228,34 @@ NSScale >> printOn: stream [
 
 { #category : #accessing }
 NSScale >> range [
+	"Return the array of values to which the domain is mapped to"
 	^ range
 ]
 
 { #category : #accessing }
-NSScale >> range: aTwoArrayOfNumbers [
-	"Expect an array of two numbers.
-	A range defines the range of the scaled value.
+NSScale >> range: someValues [
+	"Expect an array of two or more values.
+This is to what a domain is mapped to.
 	
-	For example:
-	-=-=-=
-	s := NSScale linear.
-	s range: { 5 . 10 }.
-	s scale: 0.5 
-	-=-=-=
-	Return 7.5
-	"
+For example:
+```
+s := NSScale linear.
+s range: { 5 . 10 }.
+s scale: 0.5 
+```
+Return 7.5
+
+Another example:
+```
+s := NScale linear 
+	range: { #white . #gray . #red };
+	domain: { 0 . 1 . 2}.
+s scale: 1.5. 
+``
+Return a gray-red color`
+"
 	
-	range := aTwoArrayOfNumbers
+	range := someValues
 ]
 
 { #category : #hooks }
