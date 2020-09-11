@@ -57,6 +57,11 @@ NSPerlinNoise3 >> noise2d: xin and: yin [
 ]
 
 { #category : #public }
+NSPerlinNoise3 >> noise: aPoint [
+	^ self noise: aPoint x and: aPoint y
+]
+
+{ #category : #public }
 NSPerlinNoise3 >> noise: xin and: yin [
 	| e k s |
 	e := 1.
