@@ -23,9 +23,9 @@ NSOrdinalScale >> domain: arr [
 	domain := OrderedCollection new.
 	dictionary := Dictionary new.
 	arr do: [ :xi |
-		(dictionary includesKey: xi) ifFalse: [ 
+		dictionary at: xi ifAbsentPut: [ 
 			domain add: xi.
-			dictionary at: xi put: domain size ] ].
+			domain size ] ].
 	self perform: ranger withArguments: argument
 ]
 
@@ -83,6 +83,7 @@ NSOrdinalScale >> rangeBands: x padding: padding outerPadding: outerPadding [
 		and: step.
 	reverse ifTrue: [ range := range reverse ].
 	rangeBand := step * (1 - padding).
+	range doWithIndex: [ :val :in | range at: in put: val + (rangeBand /2.0) ].
 	ranger := #rangeBands:padding:outerPadding:.
 	argument := Array with: x with: padding with: outerPadding
 ]
@@ -181,7 +182,7 @@ NSOrdinalScale >> scale: x [
 		domain add: x.
 		dictionary at: x put: (index := domain size).
 		].
-	index ifNil: [ self error: 'invalid input' ].
+	index ifNil: [ ^ NSScale linear domain: domain; range: range; scale: x ].
 	index := index % range size.
 	index isZero 
 		ifTrue: [ index := range size ].
