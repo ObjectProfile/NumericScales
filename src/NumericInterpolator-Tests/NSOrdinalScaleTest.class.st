@@ -33,9 +33,9 @@ NSOrdinalScaleTest >> testOrdinalScaleRangeBands [
 		rangeBands: #(0 960).
 	self 
 		assert: ordinal rangeBand equals: 160;
-		assert: (ordinal scale: 'a') equals: 80.0;
-		assert: (ordinal scale: 'd') equals: 560.0;
-		assert: (ordinal scale: 'f') equals: 880.0;
+		assert: (ordinal scale: 'a') equals: 0;
+		assert: (ordinal scale: 'd') equals: 480;
+		assert: (ordinal scale: 'f') equals: 800;
 		
 		assert: ordinal rangeExtent equals: #(0 960)
 		
