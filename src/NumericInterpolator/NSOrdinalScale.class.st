@@ -84,7 +84,7 @@ NSOrdinalScale >> rangeBands: x padding: padding outerPadding: outerPadding [
 	reverse ifTrue: [ range := range reverse ].
 	rangeBand := step * (1 - padding).
 	
-	"range doWithIndex: [ :val :in | range at: in put: val + (rangeBand /2.0) ]."
+	range doWithIndex: [ :val :in | range at: in put: val + (rangeBand / 2.0) ].
 	ranger := #rangeBands:padding:outerPadding:.
 	argument := Array with: x with: padding with: outerPadding
 ]
