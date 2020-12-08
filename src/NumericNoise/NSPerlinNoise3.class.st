@@ -6,10 +6,23 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'octaves',
-		'p'
+		'p',
+		'fallOff'
 	],
 	#category : #NumericNoise
 }
+
+{ #category : #accessing }
+NSPerlinNoise3 >> fallOff [
+
+	^ fallOff
+]
+
+{ #category : #accessing }
+NSPerlinNoise3 >> fallOff: aFloat [
+	"aFloat between 0 and 1"
+	fallOff := aFloat
+]
 
 { #category : #public }
 NSPerlinNoise3 >> grad2d: i x: x y: y [
@@ -24,6 +37,7 @@ NSPerlinNoise3 >> grad2d: i x: x y: y [
 NSPerlinNoise3 >> initialize [
 	| r |
 	super initialize.
+	fallOff := 0.5.
 	self octaves: 1.
 	r := Random new.
 	p := Dictionary new.
@@ -68,7 +82,7 @@ NSPerlinNoise3 >> noise: xin and: yin [
 	k := 1.
 	s := 0.
 	1 to: octaves do: [ :i | 
-		e := e * 0.5.
+		e := e * fallOff.
 		s := s + (e * (1 + (self noise2d: k * xin and: k * yin)/2) ).
 		k := k * 2 ].
 	^ s
