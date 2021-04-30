@@ -63,7 +63,7 @@ NSPerlinNoise2 >> noise: xin and: yin [
 
 { #category : #public }
 NSPerlinNoise2 >> noise: xin y: yin z: zin [
-	"(TSPerlinNoise2 new noise: 3.14 y: 42 z: 7) >>> 0.13691995878400012"
+	"(NSPerlinNoise2 new noise: 3.14 y: 42 z: 7) >>> 0.13691995878400012"
 	| x0 y0 z0 x y z u v w a aa ab b ba bb |
 	x0 := xin floor & 255.
 	y0 := yin floor & 255.
