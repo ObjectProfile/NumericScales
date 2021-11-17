@@ -11,6 +11,10 @@ Class {
 	#category : #'NumericInterpolator-Interpolators'
 }
 
+{ #category : #testing }
+NSAbstractInterpolator class >> isAbstract [ ^ self == NSAbstractInterpolator
+]
+
 { #category : #accessing }
 NSAbstractInterpolator >> start: anObject [
 	start := anObject
