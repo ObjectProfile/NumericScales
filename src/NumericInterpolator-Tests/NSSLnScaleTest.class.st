@@ -13,7 +13,7 @@ NSSLnScaleTest >> testBasic [
 	self assert: s domain equals: { Float epsilon. 50 }.
 	self assert: (s scale: -1000) closeTo: 100.
 	self assert: (s scale: 0) closeTo: 100. 
-	self assert: (s scale: 50) closeTo: 50. 
+	self assert: (s scale: 50) closeTo: 50
 ]
 
 { #category : #tests }
@@ -26,5 +26,5 @@ NSSLnScaleTest >> testMultiple [
 	self assert: (s scale: 50) closeTo: 50.
 	self assert: (s scale: 100) closeTo: 200.
 	
-	self assert: (s scale: -100) closeTo: 100.
+	self assert: (s scale: -100) closeTo: 100
 ]

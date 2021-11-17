@@ -21,7 +21,7 @@ NSClampTest >> testBasic01 [
 	self assert: x uninterpolate equals: NSUninterpolateClamp.
 	self assert: (x scale: 0) equals: 750.
 	self assert: (x scale: 200) equals: 1000.
-	self assert: (x invert: 1250) equals: 100.
+	self assert: (x invert: 1250) equals: 100
 	
 	
 ]
@@ -40,7 +40,7 @@ NSClampTest >> testBasic02 [
 	x clamp: true.
 	self assert: (x scale: 0) closeTo: 750.
 	self assert: (x scale: 200) closeTo: 1000.
-	self assert: (x invert: 1250) closeTo: 100.
+	self assert: (x invert: 1250) closeTo: 100
 	
 	
 ]
@@ -62,7 +62,7 @@ NSClampTest >> testBasic03 [
 	self assert: x uninterpolate equals: NSUninterpolateClamp.
 	self assert: (x scale: 0) closeTo: 500.
 	self assert: (x scale: 200) closeTo: 1000.
-	self assert: (x invert: 1250) closeTo: 100.
+	self assert: (x invert: 1250) closeTo: 100
 	
 	
 ]

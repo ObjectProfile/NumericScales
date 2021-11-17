@@ -26,7 +26,7 @@ NSPolylinearScaleTest >> testScalePolyLinear [
 	self 
 		assert: (linear scale: 0) equals: Color white;
 		assert: (linear scale: 0.25) equals: Color gray;
-		assert: (linear scale: 0.75) equals: Color gray.
+		assert: (linear scale: 0.75) equals: Color gray
 	
 	
 	
