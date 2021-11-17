@@ -1,5 +1,5 @@
 "
-I have two ranges the start an the stop
+I have two ranges the start and the stop
 "
 Class {
 	#name : #NSAbstractInterpolator,
