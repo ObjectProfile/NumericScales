@@ -21,7 +21,7 @@ BaselineOfNumericScales >> baseline: spec [
 				'NumericInterpolator'
 				NumericNoise);
 			group: 'Tests' with: #('Core' 'NumericInterpolator-Tests');
-			group: 'default' with: #('Core' 'Tests') ].		
+			group: 'default' with: #('Core' 'Tests') ]		
 	
 
 

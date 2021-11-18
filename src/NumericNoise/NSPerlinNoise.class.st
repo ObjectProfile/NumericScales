@@ -44,7 +44,7 @@ NSPerlinNoise >> initialize [
 	1 to: 256 do: [ :i | | v |
 		v := p at: i.
 		perm at: i put: v.
-		perm at: i + 256 put: v ].
+		perm at: i + 256 put: v ]
 	
 ]
 
@@ -92,7 +92,7 @@ NSPerlinNoise >> noise: xin and: yin [
 	t2 < 0 ifTrue: [ n2 := 0 ] ifFalse: [ 
 		t2 := t2 * t2.
 		n2 := t2 * t2 * (self dot: (self grad3At: gi2) and: x2 and: y2) ].
-	^ 70.0 * (n0 + n1 + n2).
+	^ 70.0 * (n0 + n1 + n2)
 	
 
 

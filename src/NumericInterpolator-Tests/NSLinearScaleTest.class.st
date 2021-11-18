@@ -45,7 +45,7 @@ NSLinearScaleTest >> testScaleLinear [
 		assert: (linear scale: 0.5) equals: 5.5.
 		
 	self assert: linear interpolate equals: NSInterpolator.
-	self assert: linear uninterpolate equals: NSUninterpolateNumber.
+	self assert: linear uninterpolate equals: NSUninterpolateNumber
 	
 	
 ]
@@ -60,7 +60,7 @@ NSLinearScaleTest >> testScaleLinearClamp [
 	self assert: (linear scale: -5) equals: -50.
 	linear clamp: true.
 	self assert: (linear scale: 11) equals: 100.
-	self assert: (linear scale: -5) equals: 0.
+	self assert: (linear scale: -5) equals: 0
 ]
 
 { #category : #'test - linear' }
@@ -71,7 +71,7 @@ NSLinearScaleTest >> testScaleLinearColors [
 		range: #('white' 'black').
 	self assert: (linear scale: 50) equals: Color gray.
 	self assert: (linear scale: 0) equals: Color white.
-	self assert: (linear scale: 100) equals: Color black.	
+	self assert: (linear scale: 100) equals: Color black
 ]
 
 { #category : #'test - linear' }

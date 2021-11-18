@@ -47,5 +47,5 @@ NSLogScaleTest >> testNA [
 	self assert: (log scale: 0.001) closeTo: -2.9999999999999996.
 	self assert: (log scale: 0) isNaN.
 	self assert: (log scale: -1) isNaN.
-	self assert: (log scale: -10) isNaN.
+	self assert: (log scale: -10) isNaN
 ]

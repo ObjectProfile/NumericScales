@@ -207,13 +207,13 @@ NSScale >> interpolate [
 
 { #category : #accessing }
 NSScale >> interpolate: anObject [
-	interpolate := anObject.
+	interpolate := anObject
 ]
 
 { #category : #transformation }
 NSScale >> invert: anObject [
 	"This is the inverse of scale"
-	self subclassResponsibility.
+	self subclassResponsibility
 ]
 
 { #category : #printing }
@@ -223,7 +223,7 @@ NSScale >> printOn: stream [
 	self domain printOn: stream.
 	stream << ', '.
 	self range printOn: stream.
-	stream << ')'.
+	stream << ')'
 ]
 
 { #category : #accessing }
@@ -281,7 +281,7 @@ NSScale >> to [
 
 { #category : #accessing }
 NSScale >> to: value [
-	self range: { self range first. value }.
+	self range: { self range first. value }
 ]
 
 { #category : #accessing }

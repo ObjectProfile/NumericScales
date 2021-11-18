@@ -77,12 +77,12 @@ NSColorRGBAInterpolator >> interpolate: t [
 	^ start interpolateTo: stop at: t
 ]
 
-{ #category : #interpolation }
+{ #category : #accessing }
 NSColorRGBAInterpolator >> start: anObject [
 	start := Color colorFrom: anObject
 ]
 
-{ #category : #interpolation }
+{ #category : #accessing }
 NSColorRGBAInterpolator >> stop: anObject [
 	stop := Color colorFrom: anObject
 ]
