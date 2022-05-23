@@ -31,7 +31,7 @@ NSOrdinalScaleTest >> testOrdinalScaleRangeBands [
 	ordinal := self classToTest new
 		domain: #('a' 'b' 'c' 'd' 'e' 'f');
 		rangeBands: #(0 960).
-	self 
+	self
 		assert: ordinal rangeBand equals: 160;
 		assert: (ordinal scale: 'a') equals: 80.0;
 		assert: (ordinal scale: 'd') equals: 560.0;
