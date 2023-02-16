@@ -22,8 +22,9 @@ NSLnScale >> clamp: x [
 
 { #category : #accessing }
 NSLnScale >> domain: arr [
-
-	domain := arr collect: [ :i | i max: Float machineEpsilon ].
+	| epsilon |
+	epsilon := 2.220446049250313e-16.
+	domain := arr collect: [ :i | i max: epsilon ].
 	linear domain: (domain collect: [ :n | n ln ])
 ]
 
@@ -61,5 +62,5 @@ NSLnScale >> range: x [
 { #category : #transformation }
 NSLnScale >> scale: x [
 
-	^ linear scale: (x max: Float machineEpsilon) ln
+	^ linear scale: (x max: 2.220446049250313e-16) ln
 ]
