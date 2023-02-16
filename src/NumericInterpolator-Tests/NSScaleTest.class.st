@@ -56,13 +56,13 @@ NSScaleTest >> testCategories [
 
 { #category : #'test - linear' }
 NSScaleTest >> testRandom [
-	"Random uses TSScale linear"
+	"Random uses NSScale linear"
 	| random value |
 	random := Random new.
 	value := random rsNext: 10.
 	self assert: (value between: 0 and: 10).
 	value := random rsNext: -10 and: -5.
-	self assert: (value between: -10 and: -5 ).
+	self assert: (value between: -10 and: -5 )
 ]
 
 { #category : #'test - colors' }
