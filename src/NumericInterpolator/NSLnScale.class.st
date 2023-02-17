@@ -28,10 +28,10 @@ NSLnScale >> domain: arr [
 	linear domain: (domain collect: [ :n | n ln ])
 ]
 
-{ #category : #accessing }
+{ #category : #initialization }
 NSLnScale >> initialize [
 	super initialize.
-	linear := self class linear.
+	linear := self class linear
 ]
 
 { #category : #accessing }
