@@ -1,4 +1,5 @@
 # Numeric Scales 
+[![CI](https://github.com/ObjectProfile/NumericScales/actions/workflows/runTests.yml/badge.svg)](https://github.com/ObjectProfile/NumericScales/actions/workflows/runTests.yml)
 
 Simple scales for numbers, points and colors.
 NumericScales is an essential component used by [Roassal3](https://github.com/ObjectProfile/Roassal3).
