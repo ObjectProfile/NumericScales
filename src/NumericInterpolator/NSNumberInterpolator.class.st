@@ -9,5 +9,5 @@ Class {
 
 { #category : #interpolation }
 NSNumberInterpolator >> interpolate: t [
-	^ (start * (1 - t)) + (stop * t).
+	^ (start * (1 - t)) + (stop * t)
 ]

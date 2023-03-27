@@ -14,12 +14,11 @@ NSScaleTest >> testAccessors [
 	self assert: NSScale sqrt class equals: NSPowScale.
 	self assert: NSScale pow class equals: NSPowScale.
 	self assert: NSScale ordinal class equals: NSOrdinalScale
-	
 ]
 
 { #category : #tests }
 NSScaleTest >> testAccessorsColors [
-	#(category10 category20 category20b category20c eva10 google20 paired12 sky8) 
+	#(category10 category20 category20b category20c eva10 google20 paired12 sky8)
 		do: [ :sel| | scale |
 		scale := NSScale perform: sel.
 		self assert: scale class equals: NSOrdinalScale.
@@ -32,26 +31,26 @@ NSScaleTest >> testCategories [
 	| color |
 	color := NSScale category10.
 	self assert: color range size equals: 10.
-	
-	1 to: 10 do: [ :i | 
+
+	1 to: 10 do: [ :i |
 		self assert: (color scale: i) class equals: Color ].
-	
-	1 to: 10 do: [ :i | 
+
+	1 to: 10 do: [ :i |
 		self assert: (color scale: i) equals: (color scale: i + 10) ].
-	
+
 	color := NSScale category20.
-	
+
 	self assert: color range size equals: 20.
-	0 to: 19 do: [ :i | 
+	0 to: 19 do: [ :i |
 		self assert: (color scale: i) class equals: Color ].
 	color := NSScale category20b.
-	
+
 	self assert: color range size equals: 20.
 	color := NSScale category20c.
 	self assert: color range size equals: 20.
-	
+
 	color := NSScale paired12.
-	self assert: color range size equals: 12.
+	self assert: color range size equals: 12
 ]
 
 { #category : #'test - linear' }
@@ -74,5 +73,5 @@ NSScaleTest >> testSetInterpolator [
 	scale interpolate: NSColorHSLAInterpolator.
 	self assert: (scale scale: 0.5) equals: Color gray.
 	scale interpolate: NSColorHSVAInterpolator.
-	self assert: (scale scale: 0.5) equals: Color gray.
+	self assert: (scale scale: 0.5) equals: Color gray
 ]

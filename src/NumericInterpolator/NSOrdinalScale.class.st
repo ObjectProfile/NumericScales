@@ -14,8 +14,8 @@ Class {
 }
 
 { #category : #accessing }
-NSOrdinalScale >> dictionary [ 
-	^ dictionary 
+NSOrdinalScale >> dictionary [
+	^ dictionary
 ]
 
 { #category : #accessing }
@@ -23,7 +23,7 @@ NSOrdinalScale >> domain: arr [
 	domain := OrderedCollection new.
 	dictionary := Dictionary new.
 	arr do: [ :xi |
-		dictionary at: xi ifAbsentPut: [ 
+		dictionary at: xi ifAbsentPut: [
 			domain add: xi.
 			domain size ] ].
 	self perform: ranger withArguments: argument
@@ -34,9 +34,7 @@ NSOrdinalScale >> initialize [
 	super initialize.
 	ranger := #range:.
 	argument := #( #() ).
-	self domain: #().
-	
-	
+	self domain: #()
 ]
 
 { #category : #transformation }
@@ -77,13 +75,13 @@ NSOrdinalScale >> rangeBands: x padding: padding outerPadding: outerPadding [
 		t := start. start := stop. stop := t.
 		reverse := true. ].
 	step := (stop - start) / (domain size - padding + (2*outerPadding)).
-	
-	range := self 
+
+	range := self
 		steps: start + (step * outerPadding)
 		and: step.
 	reverse ifTrue: [ range := range reverse ].
 	rangeBand := step * (1 - padding).
-	
+
 	range doWithIndex: [ :val :in | range at: in put: val + (rangeBand / 2.0) ].
 	ranger := #rangeBands:padding:outerPadding:.
 	argument := Array with: x with: padding with: outerPadding
@@ -112,11 +110,11 @@ NSOrdinalScale >> rangePoints: x padding: padding [
 	step := domain size < 2
 		ifTrue: [ start := (start  + stop)/2. 0 ]
 		ifFalse: [ (stop - start)/(domain size - 1 + padding) ].
-	range := self 
+	range := self
 		steps: start + (step * padding / 2)
 		and: step.
 	rangeBand := 0.
-	
+
 	ranger := #rangePoints:padding:.
 	argument := Array with: x with: padding
 ]
@@ -141,8 +139,8 @@ NSOrdinalScale >> rangeRoundBands: x padding: padding outerPadding: outerPadding
 		t := start. start := stop. stop := t.
 		reverse := true. ].
 	step := ((stop - start) / (domain size - padding + (2*outerPadding))) floor.
-	
-	range := self 
+
+	range := self
 		steps: start + ( (stop - start - ((domain size - padding) * step) ) / 2 ) rounded
 		and: step.
 	reverse ifTrue: [ range := range reverse ].
@@ -165,9 +163,9 @@ NSOrdinalScale >> rangeRoundPoints: x padding: padding [
 		ifTrue: [ start := stop := ((start + stop)/2) rounded. 0 ]
 		ifFalse: [[ (stop - start)/(domain size -1 + padding)]
 			on: Error do: [ :ex | 0 ] ].
-		
-	range := self 
-		steps: start + ((step * padding / 2) + (stop - start - 
+
+	range := self
+		steps: start + ((step * padding / 2) + (stop - start -
 			((domain size - 1 + padding)* step) )/ 2) rounded
 		and: step.
 	rangeBand := 0.
@@ -183,18 +181,18 @@ NSOrdinalScale >> scale: x [
 		domain add: x.
 		dictionary at: x put: (index := domain size).
 		].
-	index ifNil: [ ^ NSScale linear 
-		domain: {domain first. domain last}; 
+	index ifNil: [ ^ NSScale linear
+		domain: {domain first. domain last};
 		range: {range first. range last};
 		scale: x ].
-	
+
 	index := index % range size.
-	index isZero 
+	index isZero
 		ifTrue: [ index := range size ].
-	
+
 	(x isNumber and: (ranger = #rangeBands:padding:outerPadding:)) ifTrue: [
-		^ NSScale linear 
-		domain: {domain first. domain last}; 
+		^ NSScale linear
+		domain: {domain first. domain last};
 		range: {range first. range last};
 		scale: x
 		 ].

@@ -25,7 +25,7 @@ NSPowScale >> clamp: x [
 
 { #category : #accessing }
 NSPowScale >> domain: x [
-	linear domain: ((domain := x) collect: [ :i | powp scale: i ]).
+	linear domain: ((domain := x) collect: [ :i | powp scale: i ])
 ]
 
 { #category : #accessing }
@@ -48,7 +48,7 @@ NSPowScale >> initialize [
 	exponent := 1.
 	domain := #(0 1).
 	powp := NSPowPowScale exponent: exponent.
-	powb := NSPowPowScale exponent: 1 / exponent.
+	powb := NSPowPowScale exponent: 1 / exponent
 ]
 
 { #category : #initialization }

@@ -110,8 +110,8 @@ NSScale class >> eva10 [
 
 { #category : #colors }
 NSScale class >> fromColorCategory: symbol [
-	^ self ordinal 
-		range: (NSColorRGBAInterpolator perform: symbol);
+	^ self ordinal
+		range: ( symbol value: NSColorRGBAInterpolator);
 		yourself
 ]
 
@@ -122,7 +122,7 @@ NSScale class >> google20 [
 
 { #category : #'instance creation' }
 NSScale class >> linear [
-	^ NSLinearScale new. 
+	^ NSLinearScale new.
 ]
 
 { #category : #'instance creation' }
@@ -145,7 +145,7 @@ c := RSCanvas new.
 colors := NSScale ordinal range: { Color red translucent . Color yellow translucent . Color blue translucent }.
 
 r := Random seed: 42.
-100 timesRepeat: [ 
+100 timesRepeat: [
 	txt := { 'hello' . 'bonjour' . 'Guten Morgen' } atRandom: r.
 	g := RSGroup new.
 	g add: (RSBox new width: 130; height: 20; model: txt; color: (colors scale: txt)).
@@ -158,7 +158,7 @@ c @ RSCanvasController.
 c open
 ```
 "
-	^ NSOrdinalScale new 
+	^ NSOrdinalScale new
 ]
 
 { #category : #'instance creation' }
@@ -171,7 +171,7 @@ c := RSCanvas new.
 colors := NSScale ordinalColored: 3.
 
 r := Random seed: 42.
-100 timesRepeat: [ 
+100 timesRepeat: [
 	txt := { 'hello' . 'bonjour' . 'Guten Morgen' } atRandom: r.
 	g := RSGroup new.
 	g add: (RSBox new width: 130; height: 20; model: txt; color: (colors scale: txt)).
@@ -205,7 +205,7 @@ NSScale class >> sky8 [
 { #category : #'instance creation' }
 NSScale class >> sqrt [
 	^ self pow
-		exponent: 0.5; 
+		exponent: 0.5;
 		yourself
 ]
 
@@ -241,7 +241,7 @@ NSScale >> from [
 
 { #category : #accessing }
 NSScale >> from: value [
-	self range: { value. self range last }.
+	self range: { value. self range last }
 ]
 
 { #category : #accessing }
@@ -280,25 +280,25 @@ NSScale >> range [
 NSScale >> range: someValues [
 	"Expect an array of two or more values.
 This is to what a domain is mapped to.
-	
+
 For example:
 ```
 s := NSScale linear.
 s range: { 5 . 10 }.
-s scale: 0.5 
+s scale: 0.5
 ```
 Return 7.5
 
 Another example:
 ```
-s := NScale linear 
+s := NScale linear
 	range: { #white . #gray . #red };
 	domain: { 0 . 1 . 2}.
-s scale: 1.5. 
+s scale: 1.5.
 ``
 Return a gray-red color`
 "
-	
+
 	range := someValues
 ]
 

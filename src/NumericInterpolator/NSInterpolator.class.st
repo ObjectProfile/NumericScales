@@ -22,7 +22,7 @@ NSInterpolator class >> colorInterpolator [
 NSInterpolator class >> interpolate: a and: b [
 	| clazz |
 	clazz := self interpolatorFor: b.
-	^ clazz new start: a; stop: b.
+	^ clazz new start: a; stop: b
 ]
 
 { #category : #interpolation }

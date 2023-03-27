@@ -25,6 +25,6 @@ NSSLnScaleTest >> testMultiple [
 	self assert: (s scale: 0) closeTo: 100.
 	self assert: (s scale: 50) closeTo: 50.
 	self assert: (s scale: 100) closeTo: 200.
-	
+
 	self assert: (s scale: -100) closeTo: 100
 ]

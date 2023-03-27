@@ -44,9 +44,9 @@ NSLnScale >> interpolate: x [
 	linear interpolate: x
 ]
 
-{ #category : #accessing }
+{ #category : #transformation }
 NSLnScale >> invert: x [
-	^ (linear invert: x) exp.
+	^ (linear invert: x) exp
 ]
 
 { #category : #accessing }

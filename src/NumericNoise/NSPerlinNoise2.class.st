@@ -81,18 +81,18 @@ NSPerlinNoise2 >> noise: xin y: yin z: zin [
 	ba := (p at: b) + z0.
 	bb := (p at: b+1) + z0.
 	"result will cover the range [-1,1]"
-	^ self lerp: w 
+	^ self lerp: w
 		a: (self lerp: v
-			a: (self lerp: u 
+			a: (self lerp: u
 				a: (self grad: (p at: aa) x: x 	y: y z: z)
-				b: (self grad: (p at: ba) x: x-1	y: y z: z) )  
+				b: (self grad: (p at: ba) x: x-1	y: y z: z) )
 			b: (self lerp: u
 				a: (self grad: (p at: ab) x: x 	y: y-1 z: z)
 				b: (self grad: (p at: bb) x: x-1	y: y-1 z: z) ) )
 		b: (self lerp: v
-			a: (self lerp: u 
+			a: (self lerp: u
 				a: (self grad: (p at: aa+1) x: x 	y: y z: z-1)
-				b: (self grad: (p at: ba+1) x: x-1	y: y z: z-1) )  
+				b: (self grad: (p at: ba+1) x: x-1	y: y z: z-1) )
 			b: (self lerp: u
 				a: (self grad: (p at: ab+1) x: x 	y: y-1 z: z-1)
 				b: (self grad: (p at: bb+1) x: x-1	y: y-1 z: z-1) ) )

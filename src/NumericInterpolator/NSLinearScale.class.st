@@ -36,7 +36,7 @@ NSLinearScale >> initialize [
 	range := domain := #(0 1).
 	clamp := false.
 	interpolate := NSInterpolator.
-	self rescale.
+	self rescale
 ]
 
 { #category : #accessing }
@@ -47,12 +47,12 @@ NSLinearScale >> input [
 { #category : #accessing }
 NSLinearScale >> interpolate: x [
 	interpolate := x.
-	self rescale.
+	self rescale
 ]
 
 { #category : #transformation }
 NSLinearScale >> invert: y [
-	^ input scale: y.
+	^ input scale: y
 ]
 
 { #category : #accessing }
@@ -63,15 +63,15 @@ NSLinearScale >> output [
 { #category : #accessing }
 NSLinearScale >> range: r [
 	super range: r.
-	self rescale.
+	self rescale
 ]
 
 { #category : #accessing }
 NSLinearScale >> rangeRound: x [
 	"x is a range"
-	self 
+	self
 		range: x;
-		interpolate: NSRoundInterpolator.
+		interpolate: NSRoundInterpolator
 ]
 
 { #category : #hooks }
@@ -83,12 +83,12 @@ NSLinearScale >> rescale [
 	uninterpolate := clamp
 		ifTrue: [ NSUninterpolateClamp ]
 		ifFalse: [ NSUninterpolateNumber ].
-	output := linear new domain: domain; range: range; 
+	output := linear new domain: domain; range: range;
 		uninterpolate: uninterpolate; interpolate: interpolate.
 	output rescale.
 	input := linear new domain: range; range: domain;
 		uninterpolate: uninterpolate; interpolate: NSInterpolator.
-	input rescale.
+	input rescale
 ]
 
 { #category : #transformation }

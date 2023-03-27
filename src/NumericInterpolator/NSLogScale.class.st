@@ -20,7 +20,7 @@ NSLogScale >> base [
 { #category : #accessing }
 NSLogScale >> base: number [
 	base := number.
-	linear domain: (domain collect: [:n | self lg: n ]).
+	linear domain: (domain collect: [:n | self lg: n ])
 ]
 
 { #category : #accessing }
@@ -37,7 +37,7 @@ NSLogScale >> clamp: x [
 NSLogScale >> domain: arr [
 	positive := arr first >= 0.
 	domain := arr.
-	linear domain: (arr collect: [:n | self lg: n]).
+	linear domain: (arr collect: [:n | self lg: n])
 ]
 
 { #category : #initialization }
@@ -46,7 +46,7 @@ NSLogScale >> initialize [
 	linear := self class linear.
 	base := 10.
 	positive := true.
-	domain := #(1 0).
+	domain := #(1 0)
 ]
 
 { #category : #accessing }
@@ -61,27 +61,25 @@ NSLogScale >> interpolate: x [
 
 { #category : #transformation }
 NSLogScale >> invert: x [
-	^ self pow: (linear invert: x).
+	^ self pow: (linear invert: x)
 ]
 
 { #category : #'math functions' }
 NSLogScale >> lg: x [
 	"logarithm"
-	^ (positive 
+	^ (positive
 		ifTrue: [ (x max: 0) ln ]
-		ifFalse: [ (x > 0 
-			ifTrue: [ 0 ] 
+		ifFalse: [ (x > 0
+			ifTrue: [ 0 ]
 			ifFalse: [ 0 - x ] ) ln negated ])
-		/ (base ln).
-		
+		/ (base ln)
 ]
 
 { #category : #'math functions' }
 NSLogScale >> pow: x [
-	^ positive  
+	^ positive
 		ifTrue: [ base raisedTo: x ]
-		ifFalse: [ (base raisedTo: x negated) negated ].
-		
+		ifFalse: [ (base raisedTo: x negated) negated ]
 ]
 
 { #category : #accessing }

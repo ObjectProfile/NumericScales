@@ -30,20 +30,20 @@ NSSymLogScale >> constant [
 
 { #category : #accessing }
 NSSymLogScale >> constant: aNumber [
-	constant := aNumber.
+	constant := aNumber
 ]
 
 { #category : #accessing }
 NSSymLogScale >> domain: arr [
 	domain := arr.
-	linear domain: (arr collect: [ :i | self transformSymLog: i ]).
+	linear domain: (arr collect: [ :i | self transformSymLog: i ])
 ]
 
 { #category : #initialization }
 NSSymLogScale >> initialize [
 	super initialize.
 	self constant: 1.
-	linear := self class linear.
+	linear := self class linear
 ]
 
 { #category : #accessing }
@@ -56,9 +56,9 @@ NSSymLogScale >> interpolate: x [
 	linear interpolate: x
 ]
 
-{ #category : #accessing }
+{ #category : #transformation }
 NSSymLogScale >> invert: x [
-	^ self transformSymExp: (linear invert: x).
+	^ self transformSymExp: (linear invert: x)
 ]
 
 { #category : #accessing }
@@ -68,7 +68,7 @@ NSSymLogScale >> range [
 
 { #category : #accessing }
 NSSymLogScale >> range: x [
-	linear range: x.
+	linear range: x
 ]
 
 { #category : #accessing }

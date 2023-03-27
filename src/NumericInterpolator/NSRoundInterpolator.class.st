@@ -9,7 +9,7 @@ Class {
 
 { #category : #interpolation }
 NSRoundInterpolator class >> interpolate: a and: b [
-	^ self new start: a; stop: b.
+	^ self new start: a; stop: b
 ]
 
 { #category : #interpolation }

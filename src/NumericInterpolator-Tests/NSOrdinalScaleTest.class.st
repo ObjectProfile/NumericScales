@@ -18,11 +18,10 @@ NSOrdinalScaleTest >> testOrdinalScale [
 	ordinal := self classToTest new
 		domain: #('a' 'b' 'c' 'd' 'e' 'f');
 		range: #(10 20 30 40 50 60).
-	self 
+	self
 		assert: (ordinal scale: 'a') equals: 10;
 		assert: (ordinal scale: 'd') equals: 40;
 		assert: (ordinal scale: 'f') equals: 60
-		
 ]
 
 { #category : #'test - scales' }
@@ -36,7 +35,7 @@ NSOrdinalScaleTest >> testOrdinalScaleRangeBands [
 		assert: (ordinal scale: 'a') equals: 80.0;
 		assert: (ordinal scale: 'd') equals: 560.0;
 		assert: (ordinal scale: 'f') equals: 880.0;
-		
+
 		assert: ordinal rangeExtent equals: #(0 960)
 ]
 
@@ -46,14 +45,12 @@ NSOrdinalScaleTest >> testOrdinalScaleRangePoints [
 	ordinal := self classToTest new
 		domain: #('apple' 'orange' 'banana' 'grape');
 		rangePoints: #(0 960).
-	self 
+	self
 		assert: (ordinal scale: 'apple') equals: 0;
 		assert: (ordinal scale: 'orange') equals: 320;
 		assert: (ordinal scale: 'grape') equals: 960;
-		
+
 		assert: ordinal rangeExtent equals: #(0 960)
-	
-		
 ]
 
 { #category : #'test - scales' }
@@ -62,17 +59,17 @@ NSOrdinalScaleTest >> testOrdinalScaleRangeRoundBands [
 	ordinal := self classToTest new
 		domain: #('a' 'b' 'c' 'd' 'e' 'f');
 		rangeRoundBands: #(0 960) padding: 0.1.
-	self 
+	self
 		assert: ordinal rangeBand equals: 141;
 		assert: (ordinal scale: 'a') equals: 17;
 		assert: (ordinal scale: 'd') equals: 488;
 		assert: (ordinal scale: 'f') equals: 802;
 		assert: ordinal rangeExtent equals: #(0 960).
-		
+
 	ordinal := NSScale ordinal
 		domain: #('a' 'b' 'c' 'd' 'e' 'f');
 		rangeRoundBands: #(0 960).
-	self 
+	self
 		assert: ordinal rangeBand equals: 160;
 		assert: (ordinal scale: 'a') equals: 0;
 		assert: (ordinal scale: 'd') equals: 480;
@@ -86,10 +83,9 @@ NSOrdinalScaleTest >> testOrdinalScaleRangeRoundPoints [
 	ordinal := self classToTest new
 		domain: #(1 2 3 4);
 		rangeRoundPoints: #(0 100).
-	self 
+	self
 		assert: ordinal rangeBand equals: 0;
 		assert: (ordinal scale: 1) equals: 0;
 		assert: (ordinal scale: 2) equals: 33.333333333333333;
 		assert: (ordinal scale: 4) equals: 100
-	
 ]
