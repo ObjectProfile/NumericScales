@@ -1,5 +1,5 @@
 "
-I have two ranges the start an the stop
+I have two ranges the start and the stop
 "
 Class {
 	#name : #NSAbstractInterpolator,
@@ -10,6 +10,10 @@ Class {
 	],
 	#category : #'NumericInterpolator-Interpolators'
 }
+
+{ #category : #testing }
+NSAbstractInterpolator class >> isAbstract [ ^ self == NSAbstractInterpolator
+]
 
 { #category : #accessing }
 NSAbstractInterpolator >> start: anObject [

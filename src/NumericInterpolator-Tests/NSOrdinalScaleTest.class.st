@@ -21,7 +21,7 @@ NSOrdinalScaleTest >> testOrdinalScale [
 	self 
 		assert: (ordinal scale: 'a') equals: 10;
 		assert: (ordinal scale: 'd') equals: 40;
-		assert: (ordinal scale: 'f') equals: 60.
+		assert: (ordinal scale: 'f') equals: 60
 		
 ]
 
@@ -90,6 +90,6 @@ NSOrdinalScaleTest >> testOrdinalScaleRangeRoundPoints [
 		assert: ordinal rangeBand equals: 0;
 		assert: (ordinal scale: 1) equals: 0;
 		assert: (ordinal scale: 2) equals: 33.333333333333333;
-		assert: (ordinal scale: 4) equals: 100.
+		assert: (ordinal scale: 4) equals: 100
 	
 ]

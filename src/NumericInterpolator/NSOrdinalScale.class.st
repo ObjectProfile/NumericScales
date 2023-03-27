@@ -49,7 +49,7 @@ NSOrdinalScale >> range: x [
 	range := x.
 	rangeBand := 0.
 	ranger := #range:.
-	argument := Array with: x.
+	argument := Array with: x
 ]
 
 { #category : #accessing }
@@ -213,5 +213,5 @@ NSOrdinalScale >> scaleExtent: d [
 
 { #category : #helpers }
 NSOrdinalScale >> steps: start and: step [
-	^ (0 to: domain size - 1) collect: [ :i | (start + (step * i)) asFloat ].
+	^ (0 to: domain size - 1) collect: [ :i | (start + (step * i)) asFloat ]
 ]

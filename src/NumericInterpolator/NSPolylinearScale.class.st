@@ -45,7 +45,7 @@ NSPolylinearScale >> rescale [
 	2 to: k do: [ :j | 
 		u add: (uninterpolate uninterpolate: (domain at: j -1 ) and: (domain at: j)).
 		i add: (interpolate interpolate: (range at: j -1) and: (range at: j) )
-		 ].
+		 ]
 	
 	
 ]

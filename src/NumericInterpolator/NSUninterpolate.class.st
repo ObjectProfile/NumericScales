@@ -29,11 +29,12 @@ NSUninterpolate >> stopValue: aNum1 stop: aNum2 [
 
 { #category : #interpolating }
 NSUninterpolate >> uninterpolate: x [
-	self subclassResponsibility.
+	self subclassResponsibility
 ]
 
 { #category : #accessing }
 NSUninterpolate >> uninterpolate: aNum1 and: aNum2 [
+
 	a := aNum1.
 	b := aNum2.
 	(a isPoint or: [ b isPoint ]) ifTrue: [ 
@@ -47,6 +48,6 @@ NSUninterpolate >> uninterpolate: aNum1 and: aNum2 [
 	a isNumber 
 		ifFalse: [ ^ a := b := Float nan. ].
 	b  := b - a.
-	b := self stopValue: b stop: aNum2.
+	b := self stopValue: b stop: aNum2
 	
 ]

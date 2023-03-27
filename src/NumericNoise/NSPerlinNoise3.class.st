@@ -42,7 +42,7 @@ NSPerlinNoise3 >> initialize [
 	r := Random new.
 	p := Dictionary new.
 	0 to: 511 do: [ :i | 
-		p at: i put: (r next * 256) asInteger ].
+		p at: i put: (r next * 256) asInteger ]
 ]
 
 { #category : #public }
@@ -67,7 +67,7 @@ NSPerlinNoise3 >> noise2d: xin and: yin [
 			b: (self grad2d: (p at: p1) x: x -1 y: y))
 		b: (self lerp: fx
 			a: (self grad2d: (p at: p0+1) x: x y: y-1)
-			b: (self grad2d: (p at: p1+1) x: x -1 y: y-1)).
+			b: (self grad2d: (p at: p1+1) x: x -1 y: y-1))
 ]
 
 { #category : #public }

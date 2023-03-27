@@ -13,7 +13,7 @@ NSScaleTest >> testAccessors [
 	self assert: NSScale log class equals: NSLogScale.
 	self assert: NSScale sqrt class equals: NSPowScale.
 	self assert: NSScale pow class equals: NSPowScale.
-	self assert: NSScale ordinal class equals: NSOrdinalScale.
+	self assert: NSScale ordinal class equals: NSOrdinalScale
 	
 ]
 
