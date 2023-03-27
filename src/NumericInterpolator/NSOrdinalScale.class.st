@@ -84,7 +84,7 @@ NSOrdinalScale >> rangeBands: x padding: padding outerPadding: outerPadding [
 	reverse ifTrue: [ range := range reverse ].
 	rangeBand := step * (1 - padding).
 	
-	"range doWithIndex: [ :val :in | range at: in put: val + (rangeBand /2.0) ]."
+	range doWithIndex: [ :val :in | range at: in put: val + (rangeBand / 2.0) ].
 	ranger := #rangeBands:padding:outerPadding:.
 	argument := Array with: x with: padding with: outerPadding
 ]
@@ -183,10 +183,21 @@ NSOrdinalScale >> scale: x [
 		domain add: x.
 		dictionary at: x put: (index := domain size).
 		].
-	index ifNil: [ ^ NSScale linear domain: domain; range: range; scale: x ].
+	index ifNil: [ ^ NSScale linear 
+		domain: {domain first. domain last}; 
+		range: {range first. range last};
+		scale: x ].
+	
 	index := index % range size.
 	index isZero 
 		ifTrue: [ index := range size ].
+	
+	(x isNumber and: (ranger = #rangeBands:padding:outerPadding:)) ifTrue: [
+		^ NSScale linear 
+		domain: {domain first. domain last}; 
+		range: {range first. range last};
+		scale: x
+		 ].
 	^ range at: index
 ]
 

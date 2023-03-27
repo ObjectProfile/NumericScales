@@ -51,6 +51,25 @@ RSHorizontalLineLayout on: c shapes.
 c @ RSCanvasController.
 c open
 ```
+
+Another example using ordinal scale:
+```Smalltalk
+c := RSCanvas new.
+colors := NSScale ordinalColored: 3.
+
+r := Random seed: 42.
+100 timesRepeat: [ 
+	txt := { 'hello' . 'bonjour' . 'Guten Morgen' } atRandom: r.
+	g := RSGroup new.
+	g add: (RSBox new width: 130; height: 20; model: txt; color: (colors scale: txt)).
+	g add: (RSLabel new text: txt).
+	c add: g asShape.
+	 ].
+
+RSGridLayout new lineItemsCount: 5; on: c shapes.
+c @ RSCanvasController.
+c open
+```
 "
 Class {
 	#name : #NSScale,
@@ -120,7 +139,6 @@ NSScale class >> log [
 NSScale class >> ordinal [
 "Define an ordinal scale.
 
-
 Example:
 ```Smalltalk
 c := RSCanvas new.
@@ -141,6 +159,32 @@ c open
 ```
 "
 	^ NSOrdinalScale new 
+]
+
+{ #category : #'instance creation' }
+NSScale class >> ordinalColored: numberOfBuckets [
+"Define an ordinal scale for colors. It accepts the number of allocated buckets.
+
+Example:
+```Smalltalk
+c := RSCanvas new.
+colors := NSScale ordinalColored: 3.
+
+r := Random seed: 42.
+100 timesRepeat: [ 
+	txt := { 'hello' . 'bonjour' . 'Guten Morgen' } atRandom: r.
+	g := RSGroup new.
+	g add: (RSBox new width: 130; height: 20; model: txt; color: (colors scale: txt)).
+	g add: (RSLabel new text: txt).
+	c add: g asShape.
+	 ].
+
+RSGridLayout new lineItemsCount: 5; on: c shapes.
+c @ RSCanvasController.
+c open
+```
+"
+	^ self ordinal range: (Color wheel: numberOfBuckets saturation: 0.4 brightness: 1.0)
 ]
 
 { #category : #colors }
