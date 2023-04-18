@@ -12,7 +12,8 @@ Class {
 }
 
 { #category : #testing }
-NSAbstractInterpolator class >> isAbstract [ ^ self == NSAbstractInterpolator
+NSAbstractInterpolator class >> isAbstract [
+	^ self == NSAbstractInterpolator
 ]
 
 { #category : #accessing }
