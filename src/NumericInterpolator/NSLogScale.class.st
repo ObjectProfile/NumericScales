@@ -1,5 +1,13 @@
 "
-for scale log, for positive domains or negative domains
+For scale log, for positive domains or negative domains
+please note that you can not use numbers that contains zero.
+
+For example
+```
+log := NSLogScale new
+	domain: #(1 100).
+log scale: 0
+```
 "
 Class {
 	#name : #NSLogScale,
