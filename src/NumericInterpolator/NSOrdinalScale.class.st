@@ -8,7 +8,8 @@ Class {
 		'ranger',
 		'dictionary',
 		'argument',
-		'rangeBand'
+		'rangeBand',
+		'linearScale'
 	],
 	#category : #'NumericInterpolator-Scales'
 }
@@ -20,13 +21,16 @@ NSOrdinalScale >> dictionary [
 
 { #category : #accessing }
 NSOrdinalScale >> domain: arr [
+
 	domain := OrderedCollection new.
 	dictionary := Dictionary new.
 	arr do: [ :xi |
 		dictionary at: xi ifAbsentPut: [
 			domain add: xi.
 			domain size ] ].
-	self perform: ranger withArguments: argument
+	self perform: ranger withArguments: argument.
+
+	self rescale
 ]
 
 { #category : #initialization }
@@ -40,22 +44,18 @@ NSOrdinalScale >> initialize [
 { #category : #transformation }
 NSOrdinalScale >> invert: anObject [
 
-	^ NSScale linear
-		  domain: {
-				  domain first.
-				  domain last };
-		  range: {
-				  range first.
-				  range last };
-		  invert: anObject
+	^ linearScale invert: anObject
 ]
 
 { #category : #accessing }
 NSOrdinalScale >> range: x [
+
 	range := x.
 	rangeBand := 0.
 	ranger := #range:.
-	argument := Array with: x
+	argument := Array with: x.
+
+	self rescale
 ]
 
 { #category : #accessing }
@@ -181,18 +181,23 @@ NSOrdinalScale >> rangeRoundPoints: x padding: padding [
 	argument := Array with: x with: padding
 ]
 
+{ #category : #hooks }
+NSOrdinalScale >> rescale [
+
+	linearScale := NSScale linear
+		domain: { domain first. domain last };
+		range: { range first.  range last };
+		yourself
+]
+
 { #category : #transformation }
 NSOrdinalScale >> scale: x [
 	| index |
 	index := dictionary at: x ifAbsent: [ nil ].
 	(index isNil and: [ ranger = #range:]) ifTrue: [
 		domain add: x.
-		dictionary at: x put: (index := domain size).
-		].
-	index ifNil: [ ^ NSScale linear
-		domain: {domain first. domain last};
-		range: {range first. range last};
-		scale: x ].
+		dictionary at: x put: (index := domain size) ].
+	index ifNil: [ ^ linearScale scale: x ].
 
 	index := index % range size.
 	index isZero
