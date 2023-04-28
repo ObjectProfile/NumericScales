@@ -5,7 +5,7 @@ Inspired from https://github.com/d3/d3-scale/blob/master/src/symlog.js
 "
 Class {
 	#name : #NSSymLogScale,
-	#superclass : #NSLinearScale,
+	#superclass : #NSScale,
 	#instVars : [
 		'constant',
 		'linear'
@@ -74,6 +74,8 @@ NSSymLogScale >> range [
 
 { #category : #accessing }
 NSSymLogScale >> range: x [
+
+	range := x.
 	linear range: x
 ]
 

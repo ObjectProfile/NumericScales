@@ -308,11 +308,6 @@ Return a gray-red color`
 	range := someValues
 ]
 
-{ #category : #hooks }
-NSScale >> rescale [
-	self subclassResponsibility
-]
-
 { #category : #transformation }
 NSScale >> rsValue: obj [
 	^ self scale: obj
@@ -329,7 +324,6 @@ NSScale >> ticks: anInteger [
 
 	| rangeForDividing |
 	rangeForDividing := range first to: range last count: anInteger.
-
 	^ rangeForDividing collect: [ :e | self invert: e ]
 ]
 

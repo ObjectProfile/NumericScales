@@ -17,6 +17,20 @@ NSSymLogScaleTest >> testBasic [
 ]
 
 { #category : #tests }
+NSSymLogScaleTest >> testInvert [
+
+	| scale domain range |
+	domain := { -5.0 . 500.0 }.
+	range := { 0. 1 }.
+	scale := NSSymLogScale new
+		domain: domain;
+		range: range;
+		yourself.
+	self assert: scale domain first closeTo: (scale invert: scale range first).
+	self assert: scale domain second closeTo: (scale invert: scale range second)
+]
+
+{ #category : #tests }
 NSSymLogScaleTest >> testTicks [
 
 	| expectedTicks scale |

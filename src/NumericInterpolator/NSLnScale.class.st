@@ -3,7 +3,7 @@ I use natural logarithms to compute scales.
 "
 Class {
 	#name : #NSLnScale,
-	#superclass : #NSLinearScale,
+	#superclass : #NSScale,
 	#instVars : [
 		'linear'
 	],
@@ -62,6 +62,8 @@ NSLnScale >> range [
 
 { #category : #accessing }
 NSLnScale >> range: x [
+
+	range := x.
 	linear range: x
 ]
 

@@ -3,12 +3,13 @@ I scale using pow function
 "
 Class {
 	#name : #NSPowScale,
-	#superclass : #NSLinearScale,
+	#superclass : #NSScale,
 	#instVars : [
 		'linear',
 		'exponent',
 		'powp',
-		'powb'
+		'powb',
+		'anInteger'
 	],
 	#category : #'NumericInterpolator-Scales'
 }
@@ -79,6 +80,8 @@ NSPowScale >> range [
 
 { #category : #initialization }
 NSPowScale >> range: x [
+
+	range := x.
 	linear range: x
 ]
 
