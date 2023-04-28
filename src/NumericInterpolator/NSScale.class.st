@@ -261,7 +261,7 @@ NSScale >> invert: anObject [
 ]
 
 { #category : #accessing }
-NSScale >> niceScale [
+NSScale >> niceScale: numberOfTicks [
 
 	^ self
 ]
