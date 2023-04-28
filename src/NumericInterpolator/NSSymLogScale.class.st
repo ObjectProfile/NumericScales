@@ -62,6 +62,12 @@ NSSymLogScale >> invert: x [
 ]
 
 { #category : #accessing }
+NSSymLogScale >> niceTicks: aNumberOfTicks [
+
+	^ self ticks: aNumberOfTicks
+]
+
+{ #category : #accessing }
 NSSymLogScale >> range [
 	^ linear range
 ]
