@@ -50,12 +50,6 @@ NSLnScale >> invert: x [
 ]
 
 { #category : #accessing }
-NSLnScale >> niceTicks: aNumberOfTicks [
-
-	^ self ticks: aNumberOfTicks
-]
-
-{ #category : #accessing }
 NSLnScale >> range [
 	^ linear range
 ]

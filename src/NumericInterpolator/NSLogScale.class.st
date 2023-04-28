@@ -83,12 +83,6 @@ NSLogScale >> lg: x [
 		/ (base ln)
 ]
 
-{ #category : #accessing }
-NSLogScale >> niceTicks: aNumberOfTicks [
-
-	^ self ticks: aNumberOfTicks
-]
-
 { #category : #'math functions' }
 NSLogScale >> pow: x [
 	^ positive

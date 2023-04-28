@@ -67,12 +67,6 @@ NSPowScale >> invert: x [
 	^ powb scale: (linear invert: x)
 ]
 
-{ #category : #accessing }
-NSPowScale >> niceTicks: aNumberOfTicks [
-
-	^ self ticks: aNumberOfTicks
-]
-
 { #category : #initialization }
 NSPowScale >> range [
 	^ linear range
