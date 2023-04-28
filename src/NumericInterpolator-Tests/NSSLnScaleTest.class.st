@@ -28,3 +28,17 @@ NSSLnScaleTest >> testMultiple [
 
 	self assert: (s scale: -100) closeTo: 100
 ]
+
+{ #category : #tests }
+NSSLnScaleTest >> testTicks [
+
+	| expectedTicks scale |
+	scale := NSLnScale new
+		domain: { 1. 100 };
+		range: { 0. 1 }.
+
+	expectedTicks := (0 to: 1 count: 19) collect: [ :e | scale invert: e ].
+	self assertCollection: (scale ticks: 19) hasSameElements: expectedTicks.
+
+	self assert: (scale ticks: 107) size equals: 107
+]
