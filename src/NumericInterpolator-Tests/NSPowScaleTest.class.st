@@ -56,7 +56,7 @@ NSPowScaleTest >> testSqrt [
 NSPowScaleTest >> testTicks [
 
 	| expectedTicks scale |
-	scale := NSSymLogScale new
+	scale := NSPowScale new
 		domain: { 1. 100 };
 		range: { 0. 1 }.
 

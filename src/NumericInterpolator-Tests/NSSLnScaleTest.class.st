@@ -33,7 +33,7 @@ NSSLnScaleTest >> testMultiple [
 NSSLnScaleTest >> testTicks [
 
 	| expectedTicks scale |
-	scale := NSSymLogScale new
+	scale := NSLnScale new
 		domain: { 1. 100 };
 		range: { 0. 1 }.
 
