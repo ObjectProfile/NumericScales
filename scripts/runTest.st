@@ -42,13 +42,20 @@ unitTests := (TestCase withAllSubclasses
 
 numberOfPassed := 0.
 "We run the unit tests"
-unitTests do: [ :unitTestClass | | res |
-	res := unitTestClass buildSuite run.
-	
-	res errors , res failures do: [ :err | 
-		stream << res asString.
-		
-	].
+unitTests do: [ :unitTestClass | | res suite |
+	suite := unitTestClass buildSuite.
+	res := suite resultClass new.
+	suite setUp.
+	[ suite tests do: [ :each |
+		[ each debug ] onErrorDo: [ :err | 
+			stream << each asString.
+			stream << err signalerContext shortStack.
+			stream crlf.
+		 ].
+		suite announceTest: each.
+		suite changed: each.
+		 ] 
+	] ensure: [ suite tearDown ]
 
 	numberOfPassed := numberOfPassed + res passed size.
 ].
