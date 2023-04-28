@@ -56,26 +56,6 @@ NSLinearScale >> invert: y [
 ]
 
 { #category : #accessing }
-NSLinearScale >> niceScale: numberOfTicks [
-
-	| generator niceLabel newDomain |
-	generator := RSLabelGenerator new setLooseFlag: true.
-	niceLabel := generator
-		searchMin: domain min
-		max: domain max
-		desired: numberOfTicks.
-
-	newDomain := domain copy. "Copy to not change this scale but to create a new one."
-	newDomain replaceAll: newDomain min with: niceLabel min.
-	newDomain replaceAll: newDomain max with: niceLabel max.
-	^ self copy
-		" (niceLabel min to: niceLabel max by: niceLabel step)"
-		domain: newDomain;
-		"this does the rescale"
-		yourself
-]
-
-{ #category : #accessing }
 NSLinearScale >> output [
 	^ output
 ]
