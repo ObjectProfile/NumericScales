@@ -44,13 +44,12 @@ numberOfPassed := 0.
 "We run the unit tests"
 unitTests do: [ :unitTestClass | | res |
 	res := unitTestClass buildSuite run.
-	(res hasFailures or: [ res hasErrors ]) ifTrue: [ 
-		stream 
-			<< 'ERROR: ';
-			<< unitTestClass name; space;
-			<< res asString;
-			crlf.
+	
+	res errors , res failures do: [ :err | 
+		stream << res asString.
+		
 	].
+
 	numberOfPassed := numberOfPassed + res passed size.
 ].
 
