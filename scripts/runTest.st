@@ -50,7 +50,9 @@ unitTests do: [ :unitTestClass | | res suite |
 		[ each debug.
 		numberOfPassed := numberOfPassed + 1 ] onErrorDo: [ :err | 
 			stream << each asString.
+			stream crlf.
 			stream << err signalerContext shortStack.
+			stream crlf.
 			stream crlf.
 		 ].
 		suite announceTest: each.
