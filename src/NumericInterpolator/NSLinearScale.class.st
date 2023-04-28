@@ -56,6 +56,16 @@ NSLinearScale >> invert: y [
 ]
 
 { #category : #accessing }
+NSLinearScale >> niceTicks: numberOfTicks [
+
+	| generator niceLabel |
+	generator := NSNiceLinearTicksGenerator new setLooseFlag: true.
+	niceLabel := generator searchMin: domain min max: domain max desired: numberOfTicks.
+
+	^ niceLabel min to: niceLabel max by: niceLabel step
+]
+
+{ #category : #accessing }
 NSLinearScale >> output [
 	^ output
 ]
