@@ -1,6 +1,6 @@
 Class {
 	#name : #RSLabelGeneratorTest,
-	#superclass : #RSTest,
+	#superclass : #TestCase,
 	#instVars : [
 		'lg'
 	],
