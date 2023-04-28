@@ -57,8 +57,8 @@ NSPowScaleTest >> testTicks [
 
 	| expectedTicks scale |
 	scale := NSSymLogScale new
-		         domain: { 1. 100 };
-		         range: { 0. 1 }.
+		domain: { 1. 100 };
+		range: { 0. 1 }.
 
 	expectedTicks := (0 to: 1 count: 19) collect: [ :e | scale invert: e ].
 	self assertCollection: (scale ticks: 19) hasSameElements: expectedTicks.
