@@ -1,5 +1,5 @@
 Class {
-	#name : #RSLabelGeneratorTest,
+	#name : #NSNiceLinearTicksGeneratorTest,
 	#superclass : #TestCase,
 	#instVars : [
 		'lg'
@@ -8,7 +8,7 @@ Class {
 }
 
 { #category : #running }
-RSLabelGeneratorTest >> setUp [
+NSNiceLinearTicksGeneratorTest >> setUp [
 	| nice |
 	super setUp.
 	nice := NSNiceLinearScaleStepSizeGenerator new.
@@ -16,7 +16,7 @@ RSLabelGeneratorTest >> setUp [
 ]
 
 { #category : #tests }
-RSLabelGeneratorTest >> testError [
+NSNiceLinearTicksGeneratorTest >> testError [
 	self
 		should: [ lg searchMin: -98.0 max: 18.0 desired: 1 ]
 		raise: Error
@@ -28,7 +28,7 @@ RSLabelGeneratorTest >> testError [
 ]
 
 { #category : #tests }
-RSLabelGeneratorTest >> testSearch [
+NSNiceLinearTicksGeneratorTest >> testSearch [
 	| label |
 	lg setLooseFlag: true.
 	label := lg searchMin: -98.0 max: 18.0 desired: 3.
