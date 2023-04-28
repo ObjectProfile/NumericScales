@@ -68,10 +68,10 @@ NSLinearScale >> niceScale: numberOfTicks [
 	newDomain := domain copy. "Copy to not change this scale but to create a new one."
 	newDomain replaceAll: newDomain min with: niceLabel min.
 	newDomain replaceAll: newDomain max with: niceLabel max.
-	^ self class new
+	^ self copy
 		" (niceLabel min to: niceLabel max by: niceLabel step)"
 		domain: newDomain;
-		range: self range;
+		"this does the rescale"
 		yourself
 ]
 
