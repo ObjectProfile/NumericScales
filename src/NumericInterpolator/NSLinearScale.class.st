@@ -56,6 +56,22 @@ NSLinearScale >> invert: y [
 ]
 
 { #category : #accessing }
+NSLinearScale >> niceScale [
+
+	| generator niceLabel |
+	generator := RSLabelGenerator new setLooseFlag: true.
+
+	niceLabel := generator
+		searchMin: self min
+		max: self max
+		desired: self configuration numberOfTicks.
+	^ self class new
+		domain: (niceLabel min to: niceLabel max by: niceLabel step);
+		range: self range;
+		yourselfNotUsed
+]
+
+{ #category : #accessing }
 NSLinearScale >> output [
 	^ output
 ]
