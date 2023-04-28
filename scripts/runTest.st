@@ -47,7 +47,8 @@ unitTests do: [ :unitTestClass | | res suite |
 	res := suite resultClass new.
 	suite setUp.
 	[ suite tests do: [ :each |
-		[ each debug ] onErrorDo: [ :err | 
+		[ each debug.
+		numberOfPassed := numberOfPassed + 1 ] onErrorDo: [ :err | 
 			stream << each asString.
 			stream << err signalerContext shortStack.
 			stream crlf.
@@ -55,9 +56,9 @@ unitTests do: [ :unitTestClass | | res suite |
 		suite announceTest: each.
 		suite changed: each.
 		 ] 
-	] ensure: [ suite tearDown ]
+	] ensure: [ suite tearDown ].
 
-	numberOfPassed := numberOfPassed + res passed size.
+	.
 ].
 
 stream crlf.
