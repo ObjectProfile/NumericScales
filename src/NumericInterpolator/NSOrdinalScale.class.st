@@ -39,15 +39,7 @@ NSOrdinalScale >> initialize [
 
 { #category : #transformation }
 NSOrdinalScale >> invert: anObject [
-
-	^ NSScale linear
-		  domain: {
-				  domain first.
-				  domain last };
-		  range: {
-				  range first.
-				  range last };
-		  invert: anObject
+	self shouldNotImplement
 ]
 
 { #category : #accessing }

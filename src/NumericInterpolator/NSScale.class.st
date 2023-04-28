@@ -260,12 +260,6 @@ NSScale >> invert: anObject [
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
-NSScale >> niceScale: numberOfTicks [
-
-	^ self
-]
-
 { #category : #printing }
 NSScale >> printOn: stream [
 	super printOn: stream.
