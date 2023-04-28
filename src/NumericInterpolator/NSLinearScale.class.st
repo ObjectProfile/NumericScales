@@ -105,3 +105,12 @@ NSLinearScale >> rescale [
 NSLinearScale >> scale: x [
 	^ output scale: x
 ]
+
+{ #category : #transformation }
+NSLinearScale >> ticks: anInteger [
+
+	| rangeForDividing |
+	rangeForDividing := range first to: range last count: anInteger.
+
+	^ rangeForDividing collect: [ :e | self invert: e ]
+]

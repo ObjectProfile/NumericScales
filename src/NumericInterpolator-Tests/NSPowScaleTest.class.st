@@ -51,3 +51,17 @@ NSPowScaleTest >> testSqrt [
 		range: #(0 220).
 	self assert: (sqrt scale: 4661900) closeTo: 78.34947695663722
 ]
+
+{ #category : #'test - scales' }
+NSPowScaleTest >> testTicks [
+
+	| expectedTicks scale |
+	scale := NSPowScale new
+		domain: { 1. 100 };
+		range: { 0. 1 }.
+
+	expectedTicks := (0 to: 1 count: 19) collect: [ :e | scale invert: e ].
+	self assertCollection: (scale ticks: 19) hasSameElements: expectedTicks.
+
+	self assert: (scale ticks: 107) size equals: 107
+]

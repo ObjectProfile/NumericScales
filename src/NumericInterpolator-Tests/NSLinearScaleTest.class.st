@@ -97,3 +97,20 @@ NSLinearScaleTest >> testScaleLinearRound [
 		assert: (linear invert: 50) equals: 5;
 		assert: (linear invert: 40) equals: -5
 ]
+
+{ #category : #tests }
+NSLinearScaleTest >> testTicks [
+
+	| expectedTicks scale |
+	scale := self classToTest new
+		         domain: { 0. 100 };
+		         range: { 0. 1 }.
+
+	expectedTicks := { 0. 25. 50. 75. 100 }.
+	self assertCollection: (scale ticks: 5) hasSameElements: expectedTicks.
+
+	expectedTicks := { 0. 10. 20. 30. 40. 50. 60. 70. 80. 90. 100 }.
+	self assertCollection: (scale ticks: 11) hasSameElements: expectedTicks.
+
+	self assert: (scale ticks: 107) size equals: 107
+]

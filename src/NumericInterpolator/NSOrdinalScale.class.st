@@ -20,6 +20,7 @@ NSOrdinalScale >> dictionary [
 
 { #category : #accessing }
 NSOrdinalScale >> domain: arr [
+
 	domain := OrderedCollection new.
 	dictionary := Dictionary new.
 	arr do: [ :xi |
@@ -39,11 +40,22 @@ NSOrdinalScale >> initialize [
 
 { #category : #transformation }
 NSOrdinalScale >> invert: anObject [
-	self shouldNotImplement
+
+	^ self linearScale invert: anObject
+]
+
+{ #category : #transformation }
+NSOrdinalScale >> linearScale [
+
+	^ NSScale linear
+		domain: { domain first. domain last };
+		range: { range first.  range last };
+		yourself
 ]
 
 { #category : #accessing }
 NSOrdinalScale >> range: x [
+
 	range := x.
 	rangeBand := 0.
 	ranger := #range:.
@@ -179,12 +191,8 @@ NSOrdinalScale >> scale: x [
 	index := dictionary at: x ifAbsent: [ nil ].
 	(index isNil and: [ ranger = #range:]) ifTrue: [
 		domain add: x.
-		dictionary at: x put: (index := domain size).
-		].
-	index ifNil: [ ^ NSScale linear
-		domain: {domain first. domain last};
-		range: {range first. range last};
-		scale: x ].
+		dictionary at: x put: (index := domain size) ].
+	index ifNil: [ ^ self linearScale scale: x ].
 
 	index := index % range size.
 	index isZero
