@@ -1,6 +1,6 @@
 Class {
 	#name : #NSNumberTest,
-	#superclass : #RSTest,
+	#superclass : #TestCase,
 	#category : #'NumericInterpolator-Tests'
 }
 
