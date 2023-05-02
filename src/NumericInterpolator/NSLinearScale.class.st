@@ -56,6 +56,19 @@ NSLinearScale >> invert: y [
 ]
 
 { #category : #accessing }
+NSLinearScale >> niceTicks: numberOfTicks [
+
+	| generator niceLabel |
+	domain min = domain max ifTrue: [ ^ self ticks: numberOfTicks ].
+	numberOfTicks < 2 ifTrue: [ ^ self ticks: numberOfTicks ].
+
+	generator := NSNiceLinearTicksGenerator new setLooseFlag: true.
+	niceLabel := generator searchMin: domain min max: domain max desired: numberOfTicks.
+
+	^ niceLabel min to: niceLabel max by: niceLabel step
+]
+
+{ #category : #accessing }
 NSLinearScale >> output [
 	^ output
 ]
@@ -94,13 +107,4 @@ NSLinearScale >> rescale [
 { #category : #transformation }
 NSLinearScale >> scale: x [
 	^ output scale: x
-]
-
-{ #category : #transformation }
-NSLinearScale >> ticks: anInteger [
-
-	| rangeForDividing |
-	rangeForDividing := range first to: range last count: anInteger.
-
-	^ rangeForDividing collect: [ :e | self invert: e ]
 ]

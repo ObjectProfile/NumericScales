@@ -260,6 +260,12 @@ NSScale >> invert: anObject [
 	self subclassResponsibility
 ]
 
+{ #category : #accessing }
+NSScale >> niceTicks: aNumberOfTicks [
+
+	^ self ticks: aNumberOfTicks
+]
+
 { #category : #printing }
 NSScale >> printOn: stream [
 	super printOn: stream.
@@ -302,11 +308,6 @@ Return a gray-red color`
 	range := someValues
 ]
 
-{ #category : #hooks }
-NSScale >> rescale [
-	self subclassResponsibility
-]
-
 { #category : #transformation }
 NSScale >> rsValue: obj [
 	^ self scale: obj
@@ -316,6 +317,14 @@ NSScale >> rsValue: obj [
 NSScale >> scale: anObject [
 	"do you have your domain, and your range? ok so use this method in one of my subclasses"
 	self subclassResponsibility
+]
+
+{ #category : #transformation }
+NSScale >> ticks: anInteger [
+
+	| rangeForDividing |
+	rangeForDividing := range first to: range last count: anInteger.
+	^ rangeForDividing collect: [ :e | self invert: e ]
 ]
 
 { #category : #accessing }

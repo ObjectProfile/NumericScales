@@ -11,7 +11,7 @@ log scale: 0
 "
 Class {
 	#name : #NSLogScale,
-	#superclass : #NSLinearScale,
+	#superclass : #NSScale,
 	#instVars : [
 		'linear',
 		'base',
@@ -97,6 +97,8 @@ NSLogScale >> range [
 
 { #category : #accessing }
 NSLogScale >> range: x [
+
+	range := x.
 	linear range: x
 ]
 
