@@ -21,7 +21,7 @@ The min and max represents the range of the ticks
 "
 Class {
 	#name : #RSNiceLinearScaleResult,
-	#superclass : #RSObject,
+	#superclass : #Object,
 	#instVars : [
 		'min',
 		'max',

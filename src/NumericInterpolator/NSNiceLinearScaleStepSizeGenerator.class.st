@@ -20,7 +20,7 @@ This prints  '(Score: 0.14) -100.00	-60.00	-20.00	20.00	'
 "
 Class {
 	#name : #NSNiceLinearScaleStepSizeGenerator,
-	#superclass : #RSObject,
+	#superclass : #Object,
 	#instVars : [
 		'qvar',
 		'i',

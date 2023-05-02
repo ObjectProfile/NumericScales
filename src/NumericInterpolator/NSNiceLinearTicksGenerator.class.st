@@ -4,7 +4,7 @@ Reference:
 "
 Class {
 	#name : #NSNiceLinearTicksGenerator,
-	#superclass : #RSObject,
+	#superclass : #Object,
 	#instVars : [
 		'nice',
 		'loose',
