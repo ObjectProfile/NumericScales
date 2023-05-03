@@ -33,5 +33,11 @@ jobs:
           fetch-depth: 0
 
       # Runs a single command using the runners shell
-      - name: Run unit tests
-        run: bash ./scripts/runTest.sh
+      - name: Run pharo Tests
+        id: tests
+        uses: akevalion/PharoTestsAction@v1
+        with:
+          removes-repo: 'Roassal, Numeric'
+          baseline: 'NumericScales'
+          group: 'default'
+          tests: 'Numeric'
