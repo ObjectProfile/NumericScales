@@ -37,7 +37,7 @@ jobs:
         id: tests
         uses: akevalion/PharoTestsAction@v1
         with:
-          removes-repo: 'Roassal, Numeric'
+          removes-repo: 'Roassal,Numeric'
           baseline: 'NumericScales'
           group: 'default'
           tests: 'Numeric'
