@@ -32,7 +32,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Runs a single command using the runners shell
+      # Runs tests in a pharo image
       - name: Run pharo Tests
         id: tests
         uses: akevalion/PharoTestsAction@v1
