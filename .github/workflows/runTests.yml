@@ -32,7 +32,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Runs tests in a pharo image
+      # Runs tests in a pharo image by removing the old code in the pharo image
       - name: Run pharo Tests
         id: tests
         uses: akevalion/PharoTestsAction@v1
