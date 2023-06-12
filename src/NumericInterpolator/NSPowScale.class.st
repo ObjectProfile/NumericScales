@@ -8,8 +8,7 @@ Class {
 		'linear',
 		'exponent',
 		'powp',
-		'powb',
-		'anInteger'
+		'powb'
 	],
 	#category : #'NumericInterpolator-Scales'
 }
